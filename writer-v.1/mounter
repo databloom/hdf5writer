@@ -1,0 +1,7 @@
+!#/bin/bash
+
+
+  mount 172.16.1.1:/ifs/data /gonzo
+  mount 172.16.141.252:/ifs/data /fozzie
+  mount 172.16.208.201:/ifs/data /scooter3
+

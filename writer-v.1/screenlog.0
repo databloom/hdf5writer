@@ -1,0 +1,5211 @@
+
+echo > screenlog.0 
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# echo > screenlog.0 cp screenlog.0 fozzie-in-mix/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Pmkdir fozzie-in-mixls -l[Kvi allrun.sh ls[Kbash allrun.sh 
+das sec2
+
+real	19m0.018s
+user	5m59.646s
+sys	12m40.125s
+nfs sec2
+
+real	13m47.698s
+user	5m59.012s
+sys	6m17.792s
+nfs  sec2 concurrent
+
+real	16m57.228s
+user	6m9.837s
+sys	8m15.649s
+nfs sec2 streaming 
+
+real	14m22.085s
+user	6m0.828s
+sys	6m34.650s
+nfs fozzie  sec2 concurrent
+
+real	18m20.112s
+user	6m6.077s
+sys	6m42.152s
+nfs fozzie sec2 streaming 
+
+real	16m36.088s
+user	6m3.947s
+sys	6m49.710s
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# vi allrun.sh 
+[?1049h[?1h=[1;41r[34l[34h[?25h[23m[24m[0m[H[J[?25l[41;1H"allrun.sh" 29L, 719C[1;1H#!/bin/bash
+
+
+echo "das sec2"
+ time python writer.py ;
+rm -f /opt/big/*data.h5;
+#echo "das core"
+# time python writer_core.py;
+rm -f /opt/big/*data* ;
+echo "nfs sec2"
+ time python nfs_writer.py;
+# rm -f /gonzo/hdf5/data* ;
+#echo "nfs core"
+# time python nfs_writer_core.py ;
+# rm -f /gonzo/hdf5/data*;
+echo "nfs  sec2 concurrent"
+ time python nfs_writer_conncurrent.py;
+ rm -f /gonzo/hdf5/concurrent/*;
+echo "nfs sec2 streaming "
+ time python nfs_writer_streaming.py ;
+ rm -f /gonzo/hdf5/streaming/*
+
+echo "nfs fozzie  sec2 concurrent"
+ time python nfs_writer_conn_h400.py;
+ rm -f /fozzie/hdf5/concurrent/*;
+echo "nfs fozzie sec2 streaming "
+ time python nfs_writer_streaming_h400.py ;
+ rm -f /fozzie/hdf5/streaming/*
+
+[1m[34m~                                                                                                                                                                                        [31;1H~                                                                                                                                                                                        [32;1H~                                                                                                                                                                                        [33;1H~                                                                                                                                                                                        [34;1H~                                                                                                                                                                                        [35;1H~                                                                                                                                                                                        [36;1H~                                                                                                                                                                                        [37;1H~                                                                                                                                                                                        [38;1H~                                                                                                                                                                                        [39;1H~                                                                                                                                                                                        [40;1H~                                                                                                                                                                                        [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[28;1H[?25l[0m[41;1H[K[41;1H:[34h[?25h1[?25l[1;1H[34h[?25h[23m[24m[0m[H[J[?25l[1;1H#!/bin/bash
+
+
+echo "das sec2"
+ time python writer.py ;
+rm -f /opt/big/*data.h5;
+#echo "das core"
+# time python writer_core.py;
+rm -f /opt/big/*data* ;
+echo "nfs sec2"
+ time python nfs_writer.py;
+# rm -f /gonzo/hdf5/data* ;
+#echo "nfs core"
+# time python nfs_writer_core.py ;
+# rm -f /gonzo/hdf5/data*;
+echo "nfs  sec2 concurrent"
+ time python nfs_writer_conncurrent.py;
+ rm -f /gonzo/hdf5/concurrent/*;
+echo "nfs sec2 streaming "
+ time python nfs_writer_streaming.py ;
+ rm -f /gonzo/hdf5/streaming/*
+
+echo "nfs fozzie  sec2 concurrent"
+ time python nfs_writer_conn_h400.py;
+ rm -f /fozzie/hdf5/concurrent/*;
+echo "nfs fozzie sec2 streaming "
+ time python nfs_writer_streaming_h400.py ;
+ rm -f /fozzie/hdf5/streaming/*
+
+[1m[34m~                                                                                                                                                     [31;1H~                                                                                                                                                     [32;1H~                                                                                                                                                     [33;1H~                                                                                                                                                     [34;1H~                                                                                                                                                     [35;1H~                                                                                                                                                     [36;1H~                                                                                                                                                     [37;1H~                                                                                                                                                     [38;1H~                                                                                                                                                     [39;1H~                                                                                                                                                     [40;1H~                                                                                                                                                     [1;1H[34h[?25h[?25l[41;1H[0m:[34h[?25hq![?25l[41;1H[K[41;1H[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# vi allrun.sh [2@bash[C[C[C[C[C[C[C[C[C[C[C[4@echo > screenlog.0[Ccp screenlog.0 fozzie-in-mix/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Pmkdir fozzie-in-mixls -l[Kvi allrun.sh ls[Kbash allrun.sh [10Pmountbash mounter[1Pvi mounter [4Pmounterumount /gonzomount | grep nfs[4Pbash mounter[7Pdf -hrm -f *.h5[3P*.h5ls[Kcd /opt/big[5Prebootchmod a+x mounter ls -l[Kvi mounterhistory | grep mountclear[Kra[Kfor i in {1..50}; do echo $i; bash allrun.sh ;done [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8P100}; do[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Pecho >screenlog.0for i in {1..100}; do bash allrun.sh ;done [8@50}; do echo $i;[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@1
+1
+das sec2
+
+real	19m7.226s
+user	6m1.104s
+sys	12m45.658s
+nfs sec2
+
+real	13m55.740s
+user	5m59.996s
+sys	6m17.330s
+nfs  sec2 concurrent
+
+real	14m55.347s
+user	6m0.895s
+sys	7m9.264s
+nfs sec2 streaming 
+
+real	14m27.546s
+user	5m59.556s
+sys	6m33.027s
+nfs fozzie  sec2 concurrent
+
+real	17m49.837s
+user	6m4.119s
+sys	6m37.270s
+nfs fozzie sec2 streaming 
+
+real	16m14.453s
+user	6m3.903s
+sys	6m46.500s
+2
+das sec2
+
+real	18m54.822s
+user	6m0.361s
+sys	12m34.056s
+nfs sec2
+
+real	14m3.589s
+user	5m59.203s
+sys	6m21.162s
+nfs  sec2 concurrent
+
+real	15m27.308s
+user	6m2.382s
+sys	6m54.782s
+nfs sec2 streaming 
+
+real	16m50.442s
+user	6m22.530s
+sys	8m41.674s
+nfs fozzie  sec2 concurrent
+
+real	18m16.608s
+user	6m5.008s
+sys	6m48.750s
+nfs fozzie sec2 streaming 
+
+real	16m7.782s
+user	6m4.109s
+sys	6m30.194s
+3
+das sec2
+
+real	15m27.118s
+user	5m59.559s
+sys	9m26.098s
+nfs sec2
+
+real	13m54.093s
+user	5m59.492s
+sys	6m16.690s
+nfs  sec2 concurrent
+
+real	14m5.213s
+user	5m59.636s
+sys	6m24.408s
+nfs sec2 streaming 
+
+real	15m7.755s
+user	6m0.835s
+sys	6m47.840s
+nfs fozzie  sec2 concurrent
+
+real	17m29.274s
+user	6m6.120s
+sys	6m39.299s
+nfs fozzie sec2 streaming 
+
+real	16m27.212s
+user	6m5.262s
+sys	6m40.570s
+4
+das sec2
+
+real	14m30.169s
+user	6m0.060s
+sys	8m34.544s
+nfs sec2
+
+real	13m58.654s
+user	6m0.367s
+sys	6m21.339s
+nfs  sec2 concurrent
+
+real	15m37.165s
+user	6m3.135s
+sys	7m9.606s
+nfs sec2 streaming 
+
+real	14m23.915s
+user	6m4.752s
+sys	6m43.108s
+nfs fozzie  sec2 concurrent
+
+real	18m11.249s
+user	6m8.033s
+sys	6m58.471s
+nfs fozzie sec2 streaming 
+
+real	16m34.557s
+user	6m4.079s
+sys	6m35.011s
+5
+das sec2
+
+real	14m40.725s
+user	5m59.940s
+sys	8m44.338s
+nfs sec2
+
+real	14m1.633s
+user	6m0.507s
+sys	6m28.228s
+nfs  sec2 concurrent
+
+real	14m19.262s
+user	6m1.287s
+sys	6m40.427s
+nfs sec2 streaming 
+
+real	14m35.510s
+user	6m0.623s
+sys	6m43.962s
+nfs fozzie  sec2 concurrent
+
+real	17m53.278s
+user	6m5.356s
+sys	6m43.104s
+nfs fozzie sec2 streaming 
+
+real	16m1.923s
+user	6m3.900s
+sys	6m21.141s
+6
+das sec2
+
+real	14m44.122s
+user	6m0.532s
+sys	8m46.887s
+nfs sec2
+
+real	13m53.103s
+user	6m0.263s
+sys	6m19.602s
+nfs  sec2 concurrent
+
+real	14m19.713s
+user	6m3.727s
+sys	6m40.978s
+nfs sec2 streaming 
+
+real	14m26.504s
+user	6m0.618s
+sys	6m42.154s
+nfs fozzie  sec2 concurrent
+
+real	17m58.597s
+user	6m6.745s
+sys	6m42.802s
+nfs fozzie sec2 streaming 
+
+real	15m52.450s
+user	6m3.835s
+sys	6m34.231s
+7
+das sec2
+
+real	14m56.227s
+user	6m0.689s
+sys	8m58.147s
+nfs sec2
+
+real	13m55.913s
+user	6m0.945s
+sys	6m16.815s
+nfs  sec2 concurrent
+
+real	14m48.276s
+user	6m0.512s
+sys	7m5.875s
+nfs sec2 streaming 
+
+real	14m31.347s
+user	6m0.781s
+sys	6m41.145s
+nfs fozzie  sec2 concurrent
+
+real	17m0.591s
+user	6m5.308s
+sys	6m39.429s
+nfs fozzie sec2 streaming 
+
+real	16m15.891s
+user	6m4.543s
+sys	6m33.514s
+8
+das sec2
+
+real	14m32.603s
+user	6m0.284s
+sys	8m37.203s
+nfs sec2
+
+real	13m58.621s
+user	5m59.954s
+sys	6m19.464s
+nfs  sec2 concurrent
+
+real	15m30.251s
+user	6m4.408s
+sys	7m43.105s
+nfs sec2 streaming 
+
+real	14m34.540s
+user	6m2.313s
+sys	6m50.489s
+nfs fozzie  sec2 concurrent
+
+real	18m2.185s
+user	6m7.001s
+sys	6m50.129s
+nfs fozzie sec2 streaming 
+
+real	16m22.516s
+user	6m8.804s
+sys	6m47.319s
+9
+das sec2
+
+real	14m34.405s
+user	5m59.876s
+sys	8m38.346s
+nfs sec2
+
+real	13m37.032s
+user	5m59.772s
+sys	6m8.223s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 13, in <module>
+    hf.create_dataset('dataset_2', data=d2)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/group.py", line 136, in create_dataset
+    dsid = dataset.make_new_dset(self, shape, dtype, data, **kwds)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/dataset.py", line 170, in make_new_dset
+    dset_id.write(h5s.ALL, h5s.ALL, data)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5d.pyx", line 222, in h5py.h5d.DatasetID.write
+  File "h5py/_proxy.pyx", line 132, in h5py._proxy.dset_rw
+  File "h5py/_proxy.pyx", line 93, in h5py._proxy.H5PY_H5Dwrite
+IOError: Can't write data (file write failed: time = Thu Mar 12 22:14:47 2020
+, filename = '/gonzo/hdf5/concurrent/20200312-220838-data.h5', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x7f632ea16010, total write size = 17464238080, bytes this sub-write = 17464238080, bytes actually written = 18446744073709551615, offset = 382535763968)
+
+real	14m25.796s
+user	6m10.747s
+sys	7m12.310s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 15, in <module>
+    hf.close()
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 443, in close
+    h5i.dec_ref(id_)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5i.pyx", line 150, in h5py.h5i.dec_ref
+RuntimeError: Can't decrement id ref count (unable to close file, errno = 28, error message = 'No space left on device')
+allrun.sh: line 20: 39737 Segmentation fault      (core dumped) python nfs_writer_streaming.py
+
+real	16m3.591s
+user	6m3.950s
+sys	6m38.995s
+nfs fozzie  sec2 concurrent
+
+real	17m49.872s
+user	6m5.983s
+sys	6m41.646s
+nfs fozzie sec2 streaming 
+
+real	16m6.551s
+user	6m3.407s
+sys	6m30.785s
+10
+das sec2
+
+real	14m38.935s
+user	6m0.722s
+sys	8m42.908s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 17, in <module>
+    hf.close()
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 443, in close
+    h5i.dec_ref(id_)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5i.pyx", line 150, in h5py.h5i.dec_ref
+RuntimeError: Can't decrement id ref count (unable to close file, errno = 28, error message = 'No space left on device')
+allrun.sh: line 11: 68588 Segmentation fault      (core dumped) python nfs_writer.py
+
+real	15m31.475s
+user	6m3.976s
+sys	6m33.177s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200312-234517-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m21.829s
+user	6m1.535s
+sys	1m26.281s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200312-235246-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m29.786s
+user	6m2.980s
+sys	1m32.753s
+nfs fozzie  sec2 concurrent
+
+real	18m38.376s
+user	6m42.531s
+sys	7m30.763s
+nfs fozzie sec2 streaming 
+
+real	16m9.901s
+user	6m3.838s
+sys	6m33.080s
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# [K[root@groot-3 hdf5]# for i in {1..10}; do echo $i; bash allrun.sh ;done [1@0
+1
+das sec2
+
+real	17m45.744s
+user	6m28.378s
+sys	11m21.713s
+nfs sec2
+
+real	14m4.013s
+user	6m1.609s
+sys	6m26.996s
+nfs  sec2 concurrent
+
+real	17m18.804s
+user	6m20.584s
+sys	9m21.292s
+nfs sec2 streaming 
+
+real	15m5.028s
+user	6m6.679s
+sys	7m18.607s
+nfs fozzie  sec2 concurrent
+
+real	18m5.981s
+user	6m32.174s
+sys	8m31.096s
+nfs fozzie sec2 streaming 
+
+real	16m27.263s
+user	6m6.526s
+sys	6m59.398s
+2
+das sec2
+
+real	14m48.486s
+user	6m1.657s
+sys	8m51.760s
+nfs sec2
+
+real	13m55.839s
+user	6m0.205s
+sys	6m23.407s
+nfs  sec2 concurrent
+
+real	17m6.493s
+user	6m7.251s
+sys	7m7.004s
+nfs sec2 streaming 
+
+real	16m8.494s
+user	6m29.279s
+sys	8m30.343s
+nfs fozzie  sec2 concurrent
+
+real	17m12.979s
+user	6m24.808s
+sys	7m48.563s
+nfs fozzie sec2 streaming 
+
+real	16m30.927s
+user	6m3.940s
+sys	6m42.196s
+3
+das sec2
+
+real	16m56.266s
+user	6m22.975s
+sys	10m37.881s
+nfs sec2
+
+real	15m21.368s
+user	6m12.777s
+sys	7m40.848s
+nfs  sec2 concurrent
+
+real	15m24.110s
+user	6m12.721s
+sys	7m47.974s
+nfs sec2 streaming 
+
+real	14m27.357s
+user	6m1.141s
+sys	6m45.675s
+nfs fozzie  sec2 concurrent
+
+real	19m9.204s
+user	6m22.064s
+sys	8m49.314s
+nfs fozzie sec2 streaming 
+
+real	17m1.933s
+user	6m11.714s
+sys	7m15.678s
+4
+das sec2
+
+real	15m38.160s
+user	6m8.787s
+sys	9m32.633s
+nfs sec2
+
+real	15m34.887s
+user	6m12.788s
+sys	7m44.707s
+nfs  sec2 concurrent
+
+real	17m35.953s
+user	6m32.504s
+sys	9m54.887s
+nfs sec2 streaming 
+
+real	15m19.611s
+user	6m12.444s
+sys	7m25.982s
+nfs fozzie  sec2 concurrent
+
+real	17m43.180s
+user	6m22.028s
+sys	8m57.764s
+nfs fozzie sec2 streaming 
+
+real	16m33.434s
+user	6m7.302s
+sys	7m6.697s
+5
+das sec2
+
+real	14m46.906s
+user	6m0.810s
+sys	8m50.915s
+nfs sec2
+
+real	15m1.635s
+user	6m9.864s
+sys	7m27.755s
+nfs  sec2 concurrent
+
+real	14m42.320s
+user	6m10.858s
+sys	7m27.946s
+nfs sec2 streaming 
+
+real	17m13.756s
+user	6m25.892s
+sys	9m37.112s
+nfs fozzie  sec2 concurrent
+
+real	17m22.715s
+user	6m26.529s
+sys	7m48.194s
+nfs fozzie sec2 streaming 
+
+real	17m30.086s
+user	6m21.288s
+sys	8m48.549s
+6
+das sec2
+
+real	16m26.704s
+user	6m11.821s
+sys	10m18.704s
+nfs sec2
+
+real	14m42.693s
+user	6m7.570s
+sys	7m4.670s
+nfs  sec2 concurrent
+
+real	15m6.507s
+user	6m11.431s
+sys	7m23.422s
+nfs sec2 streaming 
+
+real	15m4.224s
+user	6m12.160s
+sys	7m18.078s
+nfs fozzie  sec2 concurrent
+
+real	17m47.305s
+user	6m7.077s
+sys	6m27.977s
+nfs fozzie sec2 streaming 
+
+real	16m48.288s
+user	6m17.308s
+sys	7m7.424s
+7
+das sec2
+
+real	15m9.806s
+user	6m7.026s
+sys	9m7.458s
+nfs sec2
+
+real	14m15.192s
+user	6m2.610s
+sys	6m39.244s
+nfs  sec2 concurrent
+
+real	14m49.136s
+user	6m8.097s
+sys	7m4.890s
+nfs sec2 streaming 
+
+real	16m28.056s
+user	6m19.048s
+sys	8m24.603s
+nfs fozzie  sec2 concurrent
+
+real	17m49.718s
+user	6m10.131s
+sys	6m35.791s
+nfs fozzie sec2 streaming 
+
+real	16m59.329s
+user	6m21.548s
+sys	7m21.275s
+8
+das sec2
+
+real	16m55.413s
+user	6m16.105s
+sys	10m43.702s
+nfs sec2
+
+real	14m32.682s
+user	6m11.843s
+sys	6m57.109s
+nfs  sec2 concurrent
+
+real	15m56.463s
+user	6m17.717s
+sys	8m2.744s
+nfs sec2 streaming 
+
+real	15m9.799s
+user	6m9.450s
+sys	7m20.144s
+nfs fozzie  sec2 concurrent
+
+real	17m44.035s
+user	6m14.087s
+sys	7m34.349s
+nfs fozzie sec2 streaming 
+
+real	16m46.328s
+user	6m10.629s
+sys	7m32.669s
+9
+das sec2
+
+real	15m19.776s
+user	6m11.535s
+sys	9m12.862s
+nfs sec2
+
+real	17m3.054s
+user	6m23.579s
+sys	9m3.517s
+nfs  sec2 concurrent
+
+real	16m8.106s
+user	6m23.512s
+sys	8m8.364s
+nfs sec2 streaming 
+
+real	15m14.780s
+user	6m14.406s
+sys	7m49.138s
+nfs fozzie  sec2 concurrent
+
+real	18m58.302s
+user	6m24.362s
+sys	9m2.555s
+nfs fozzie sec2 streaming 
+
+real	16m27.057s
+user	6m5.125s
+sys	6m48.576s
+10
+das sec2
+
+real	14m24.939s
+user	6m0.284s
+sys	8m29.317s
+nfs sec2
+
+real	15m3.445s
+user	6m9.323s
+sys	7m21.773s
+nfs  sec2 concurrent
+
+real	14m58.245s
+user	6m10.955s
+sys	7m20.722s
+nfs sec2 streaming 
+
+real	15m28.513s
+user	6m17.851s
+sys	8m4.214s
+nfs fozzie  sec2 concurrent
+
+real	19m0.874s
+user	6m23.777s
+sys	9m1.795s
+nfs fozzie sec2 streaming 
+
+real	17m30.222s
+user	6m18.852s
+sys	8m8.621s
+11
+das sec2
+
+real	16m52.474s
+user	6m17.232s
+sys	10m39.330s
+nfs sec2
+
+real	15m13.392s
+user	6m14.347s
+sys	7m28.243s
+nfs  sec2 concurrent
+
+real	15m11.395s
+user	6m14.322s
+sys	7m31.708s
+nfs sec2 streaming 
+
+real	14m12.621s
+user	6m4.245s
+sys	6m33.096s
+nfs fozzie  sec2 concurrent
+
+real	18m11.471s
+user	6m11.050s
+sys	7m18.826s
+nfs fozzie sec2 streaming 
+
+real	17m13.484s
+user	6m18.612s
+sys	8m31.130s
+12
+das sec2
+
+real	15m27.162s
+user	6m7.192s
+sys	9m24.798s
+nfs sec2
+
+real	15m9.593s
+user	6m10.721s
+sys	7m20.374s
+nfs  sec2 concurrent
+
+real	16m11.512s
+user	6m20.528s
+sys	8m11.756s
+nfs sec2 streaming 
+
+real	14m6.715s
+user	6m0.806s
+sys	6m27.128s
+nfs fozzie  sec2 concurrent
+
+real	16m40.351s
+user	6m15.954s
+sys	7m10.591s
+nfs fozzie sec2 streaming 
+
+real	16m21.098s
+user	6m11.888s
+sys	6m51.961s
+13
+das sec2
+
+real	16m5.062s
+user	6m12.952s
+sys	9m54.932s
+nfs sec2
+
+real	16m30.908s
+user	6m25.783s
+sys	8m57.102s
+nfs  sec2 concurrent
+
+real	16m53.437s
+user	6m27.517s
+sys	9m19.588s
+nfs sec2 streaming 
+
+real	16m41.565s
+user	6m25.469s
+sys	9m3.247s
+nfs fozzie  sec2 concurrent
+
+real	18m29.527s
+user	6m8.927s
+sys	7m17.761s
+nfs fozzie sec2 streaming 
+
+real	17m13.893s
+user	6m13.659s
+sys	8m7.805s
+14
+das sec2
+
+real	16m54.384s
+user	6m20.604s
+sys	10m38.135s
+nfs sec2
+
+real	14m42.467s
+user	6m9.081s
+sys	7m2.536s
+nfs  sec2 concurrent
+
+real	15m3.524s
+user	6m8.968s
+sys	7m14.963s
+nfs sec2 streaming 
+
+real	16m8.757s
+user	6m16.703s
+sys	8m8.250s
+nfs fozzie  sec2 concurrent
+
+real	17m32.123s
+user	6m4.201s
+sys	6m46.414s
+nfs fozzie sec2 streaming 
+
+real	17m5.332s
+user	6m18.035s
+sys	8m3.085s
+15
+das sec2
+
+real	15m53.949s
+user	6m13.497s
+sys	9m45.265s
+nfs sec2
+
+real	15m2.691s
+user	6m9.007s
+sys	7m12.749s
+nfs  sec2 concurrent
+
+real	16m47.215s
+user	6m21.634s
+sys	8m42.971s
+nfs sec2 streaming 
+
+real	15m42.755s
+user	6m11.278s
+sys	7m41.982s
+nfs fozzie  sec2 concurrent
+
+real	17m47.432s
+user	6m8.400s
+sys	6m53.542s
+nfs fozzie sec2 streaming 
+
+real	16m13.146s
+user	6m16.232s
+sys	7m3.233s
+16
+das sec2
+
+real	15m15.755s
+user	6m5.002s
+sys	9m15.554s
+nfs sec2
+
+real	13m59.251s
+user	6m11.992s
+sys	6m41.389s
+nfs  sec2 concurrent
+
+real	15m31.436s
+user	6m12.552s
+sys	7m39.918s
+nfs sec2 streaming 
+
+real	14m14.754s
+user	6m1.006s
+sys	6m28.788s
+nfs fozzie  sec2 concurrent
+
+real	19m11.927s
+user	6m17.920s
+sys	8m22.486s
+nfs fozzie sec2 streaming 
+
+real	16m44.079s
+user	6m11.913s
+sys	7m56.542s
+17
+das sec2
+
+real	14m56.239s
+user	6m5.564s
+sys	8m55.580s
+nfs sec2
+
+real	16m6.153s
+user	6m25.771s
+sys	8m28.166s
+nfs  sec2 concurrent
+
+real	17m29.974s
+user	6m27.435s
+sys	9m51.784s
+nfs sec2 streaming 
+
+real	15m7.424s
+user	6m7.942s
+sys	7m15.291s
+nfs fozzie  sec2 concurrent
+
+real	17m49.347s
+user	6m11.797s
+sys	7m2.986s
+nfs fozzie sec2 streaming 
+
+real	16m21.796s
+user	6m2.970s
+sys	6m42.316s
+18
+das sec2
+
+real	14m41.360s
+user	6m2.301s
+sys	8m43.972s
+nfs sec2
+
+real	14m58.800s
+user	6m7.426s
+sys	7m8.361s
+nfs  sec2 concurrent
+
+real	14m55.972s
+user	6m10.686s
+sys	7m4.272s
+nfs sec2 streaming 
+
+real	15m31.787s
+user	6m17.745s
+sys	8m2.065s
+nfs fozzie  sec2 concurrent
+
+real	18m12.117s
+user	6m14.010s
+sys	7m37.106s
+nfs fozzie sec2 streaming 
+
+real	16m33.312s
+user	6m13.455s
+sys	8m24.267s
+19
+das sec2
+
+real	15m43.657s
+user	6m12.520s
+sys	9m35.725s
+nfs sec2
+
+real	15m48.922s
+user	6m19.486s
+sys	8m20.574s
+nfs  sec2 concurrent
+
+real	15m41.805s
+user	6m19.293s
+sys	8m15.377s
+nfs sec2 streaming 
+
+real	15m4.714s
+user	6m6.637s
+sys	7m11.332s
+nfs fozzie  sec2 concurrent
+
+real	17m30.339s
+user	6m5.288s
+sys	6m29.297s
+nfs fozzie sec2 streaming 
+
+real	17m5.170s
+user	6m28.498s
+sys	7m48.759s
+20
+das sec2
+
+real	15m12.768s
+user	6m6.922s
+sys	9m10.627s
+nfs sec2
+
+real	14m18.695s
+user	6m4.947s
+sys	6m40.045s
+nfs  sec2 concurrent
+
+real	14m31.300s
+user	6m5.446s
+sys	6m48.897s
+nfs sec2 streaming 
+
+real	14m46.820s
+user	6m5.793s
+sys	6m54.844s
+nfs fozzie  sec2 concurrent
+
+real	18m55.481s
+user	6m13.013s
+sys	7m11.437s
+nfs fozzie sec2 streaming 
+
+real	16m28.032s
+user	6m6.055s
+sys	7m17.713s
+21
+das sec2
+
+real	16m49.216s
+user	6m21.102s
+sys	10m32.690s
+nfs sec2
+
+real	14m16.963s
+user	6m0.333s
+sys	6m36.046s
+nfs  sec2 concurrent
+
+real	14m50.520s
+user	6m3.575s
+sys	7m5.239s
+nfs sec2 streaming 
+
+real	17m38.239s
+user	6m32.936s
+sys	9m51.772s
+nfs fozzie  sec2 concurrent
+
+real	17m25.638s
+user	6m7.626s
+sys	6m58.950s
+nfs fozzie sec2 streaming 
+
+real	17m4.652s
+user	6m10.836s
+sys	7m5.669s
+22
+das sec2
+
+real	15m14.581s
+user	6m8.810s
+sys	9m10.557s
+nfs sec2
+
+real	13m54.926s
+user	6m0.237s
+sys	6m15.595s
+nfs  sec2 concurrent
+
+real	14m53.258s
+user	6m7.614s
+sys	7m3.913s
+nfs sec2 streaming 
+
+real	17m4.923s
+user	6m28.071s
+sys	9m13.164s
+nfs fozzie  sec2 concurrent
+
+real	18m42.411s
+user	6m18.119s
+sys	8m13.009s
+nfs fozzie sec2 streaming 
+
+real	16m34.578s
+user	6m8.822s
+sys	7m3.689s
+23
+das sec2
+
+real	16m11.373s
+user	6m11.665s
+sys	10m4.272s
+nfs sec2
+
+real	15m11.375s
+user	6m9.477s
+sys	7m20.255s
+nfs  sec2 concurrent
+
+real	15m23.646s
+user	6m9.106s
+sys	7m35.741s
+nfs sec2 streaming 
+
+real	15m45.970s
+user	6m28.714s
+sys	7m31.835s
+nfs fozzie  sec2 concurrent
+
+real	17m27.360s
+user	6m8.120s
+sys	6m49.024s
+nfs fozzie sec2 streaming 
+
+real	16m45.702s
+user	6m12.911s
+sys	7m32.244s
+24
+das sec2
+
+real	14m48.581s
+user	6m1.604s
+sys	8m51.349s
+nfs sec2
+
+real	14m13.346s
+user	6m2.021s
+sys	6m27.704s
+nfs  sec2 concurrent
+
+real	14m43.205s
+user	6m2.602s
+sys	7m6.161s
+nfs sec2 streaming 
+
+real	16m28.958s
+user	6m23.122s
+sys	8m48.940s
+nfs fozzie  sec2 concurrent
+
+real	18m52.621s
+user	6m20.566s
+sys	8m23.269s
+nfs fozzie sec2 streaming 
+
+real	17m23.470s
+user	6m20.788s
+sys	8m40.418s
+25
+das sec2
+
+real	18m0.214s
+user	6m23.697s
+sys	11m40.607s
+nfs sec2
+
+real	14m5.319s
+user	6m1.932s
+sys	6m23.439s
+nfs  sec2 concurrent
+
+real	15m27.015s
+user	6m2.706s
+sys	7m16.500s
+nfs sec2 streaming 
+
+real	14m19.192s
+user	6m0.405s
+sys	6m36.486s
+nfs fozzie  sec2 concurrent
+
+real	17m28.482s
+user	6m4.671s
+sys	6m27.487s
+nfs fozzie sec2 streaming 
+
+real	16m21.881s
+user	6m5.566s
+sys	6m55.303s
+26
+das sec2
+
+real	14m42.309s
+user	6m0.714s
+sys	8m46.438s
+nfs sec2
+
+real	14m43.932s
+user	6m7.744s
+sys	6m58.059s
+nfs  sec2 concurrent
+
+real	14m55.120s
+user	6m7.850s
+sys	7m7.742s
+nfs sec2 streaming 
+
+real	15m8.852s
+user	6m5.711s
+sys	7m14.315s
+nfs fozzie  sec2 concurrent
+
+real	17m45.655s
+user	6m4.603s
+sys	6m43.150s
+nfs fozzie sec2 streaming 
+
+real	15m48.982s
+user	6m4.499s
+sys	6m46.224s
+27
+das sec2
+
+real	14m35.035s
+user	5m59.569s
+sys	8m40.441s
+nfs sec2
+
+real	14m4.701s
+user	5m59.477s
+sys	6m24.719s
+nfs  sec2 concurrent
+
+real	17m6.229s
+user	6m7.291s
+sys	7m33.532s
+nfs sec2 streaming 
+
+real	14m20.628s
+user	6m0.298s
+sys	6m32.659s
+nfs fozzie  sec2 concurrent
+
+real	17m13.570s
+user	6m4.066s
+sys	6m45.653s
+nfs fozzie sec2 streaming 
+
+real	16m36.686s
+user	6m3.770s
+sys	6m54.363s
+28
+das sec2
+
+real	14m34.074s
+user	5m59.166s
+sys	8m39.788s
+nfs sec2
+
+real	14m2.670s
+user	5m59.492s
+sys	6m21.613s
+nfs  sec2 concurrent
+
+real	14m22.718s
+user	6m8.926s
+sys	7m6.279s
+nfs sec2 streaming 
+
+real	15m50.459s
+user	6m11.157s
+sys	7m51.550s
+nfs fozzie  sec2 concurrent
+
+real	17m57.340s
+user	6m5.246s
+sys	6m45.035s
+nfs fozzie sec2 streaming 
+
+real	16m28.478s
+user	6m4.308s
+sys	6m52.482s
+29
+das sec2
+
+real	14m38.720s
+user	6m0.853s
+sys	8m42.634s
+nfs sec2
+
+real	13m54.258s
+user	5m59.378s
+sys	6m18.423s
+nfs  sec2 concurrent
+
+real	15m49.227s
+user	6m3.390s
+sys	7m11.640s
+nfs sec2 streaming 
+
+real	14m34.752s
+user	5m59.176s
+sys	6m48.233s
+nfs fozzie  sec2 concurrent
+
+real	17m10.038s
+user	6m2.681s
+sys	6m48.598s
+nfs fozzie sec2 streaming 
+
+real	16m14.360s
+user	6m3.733s
+sys	6m47.929s
+30
+das sec2
+
+real	14m34.542s
+user	6m0.168s
+sys	8m39.262s
+nfs sec2
+
+real	14m4.628s
+user	6m1.086s
+sys	6m24.417s
+nfs  sec2 concurrent
+
+real	14m48.338s
+user	6m0.319s
+sys	7m7.192s
+nfs sec2 streaming 
+
+real	15m21.349s
+user	6m23.305s
+sys	7m10.582s
+nfs fozzie  sec2 concurrent
+
+real	18m10.528s
+user	6m7.123s
+sys	6m42.200s
+nfs fozzie sec2 streaming 
+
+real	16m1.072s
+user	6m6.344s
+sys	6m32.061s
+31
+das sec2
+
+real	14m35.931s
+user	6m1.588s
+sys	8m39.348s
+nfs sec2
+
+real	13m59.732s
+user	6m0.964s
+sys	6m20.382s
+nfs  sec2 concurrent
+
+real	15m26.019s
+user	6m4.090s
+sys	6m45.714s
+nfs sec2 streaming 
+
+real	14m24.160s
+user	5m59.970s
+sys	6m38.727s
+nfs fozzie  sec2 concurrent
+
+real	17m39.293s
+user	6m5.893s
+sys	6m40.431s
+nfs fozzie sec2 streaming 
+
+real	15m43.609s
+user	6m4.531s
+sys	6m48.900s
+32
+das sec2
+
+real	14m38.061s
+user	6m0.623s
+sys	8m42.436s
+nfs sec2
+
+real	14m11.662s
+user	6m0.741s
+sys	6m27.582s
+nfs  sec2 concurrent
+
+real	16m30.994s
+user	6m1.951s
+sys	7m29.152s
+nfs sec2 streaming 
+
+real	14m22.825s
+user	6m1.809s
+sys	6m38.280s
+nfs fozzie  sec2 concurrent
+
+real	16m59.842s
+user	6m21.367s
+sys	6m49.812s
+nfs fozzie sec2 streaming 
+
+real	16m1.011s
+user	6m3.913s
+sys	6m54.909s
+33
+das sec2
+
+real	14m51.645s
+user	6m5.750s
+sys	8m50.645s
+nfs sec2
+
+real	14m2.946s
+user	5m59.288s
+sys	6m25.412s
+nfs  sec2 concurrent
+
+real	16m20.194s
+user	6m4.808s
+sys	7m7.435s
+nfs sec2 streaming 
+
+real	14m16.956s
+user	6m1.237s
+sys	6m31.386s
+nfs fozzie  sec2 concurrent
+
+real	15m43.988s
+user	6m8.224s
+sys	5m26.941s
+nfs fozzie sec2 streaming 
+
+real	15m50.434s
+user	6m4.373s
+sys	6m31.443s
+34
+das sec2
+
+real	14m36.214s
+user	5m59.481s
+sys	8m41.355s
+nfs sec2
+
+real	13m56.562s
+user	5m59.712s
+sys	6m20.405s
+nfs  sec2 concurrent
+
+real	15m47.227s
+user	6m2.470s
+sys	7m12.482s
+nfs sec2 streaming 
+
+real	14m21.000s
+user	6m1.078s
+sys	6m42.253s
+nfs fozzie  sec2 concurrent
+
+real	18m3.705s
+user	6m7.074s
+sys	6m38.746s
+nfs fozzie sec2 streaming 
+
+real	16m17.062s
+user	6m5.648s
+sys	6m44.181s
+35
+das sec2
+
+real	14m45.699s
+user	6m1.726s
+sys	8m48.894s
+nfs sec2
+
+real	14m2.904s
+user	6m0.419s
+sys	6m21.243s
+nfs  sec2 concurrent
+
+real	14m44.776s
+user	6m0.248s
+sys	6m48.757s
+nfs sec2 streaming 
+
+real	14m28.975s
+user	6m0.393s
+sys	6m40.466s
+nfs fozzie  sec2 concurrent
+
+real	17m58.953s
+user	6m6.187s
+sys	6m47.074s
+nfs fozzie sec2 streaming 
+
+real	16m11.044s
+user	6m4.510s
+sys	6m55.176s
+36
+das sec2
+
+real	14m38.228s
+user	6m0.701s
+sys	8m42.499s
+nfs sec2
+
+real	14m22.070s
+user	6m2.300s
+sys	6m40.877s
+nfs  sec2 concurrent
+
+real	14m22.063s
+user	6m7.071s
+sys	6m44.203s
+nfs sec2 streaming 
+
+real	14m50.235s
+user	6m2.017s
+sys	6m50.320s
+nfs fozzie  sec2 concurrent
+
+real	17m34.121s
+user	6m6.105s
+sys	6m58.536s
+nfs fozzie sec2 streaming 
+
+real	16m15.275s
+user	6m4.634s
+sys	6m47.763s
+37
+das sec2
+
+real	14m45.528s
+user	6m1.503s
+sys	8m48.980s
+nfs sec2
+
+real	14m23.053s
+user	6m3.592s
+sys	6m43.228s
+nfs  sec2 concurrent
+
+real	15m16.551s
+user	6m10.155s
+sys	7m23.693s
+nfs sec2 streaming 
+
+real	14m39.489s
+user	6m6.850s
+sys	6m53.276s
+nfs fozzie  sec2 concurrent
+
+real	17m20.059s
+user	6m5.370s
+sys	6m51.487s
+nfs fozzie sec2 streaming 
+
+real	17m13.030s
+user	6m25.971s
+sys	7m44.794s
+38
+das sec2
+
+real	14m56.181s
+user	6m8.888s
+sys	8m52.212s
+nfs sec2
+
+real	14m7.868s
+user	6m2.320s
+sys	6m31.062s
+nfs  sec2 concurrent
+
+real	16m50.310s
+user	6m20.672s
+sys	8m42.731s
+nfs sec2 streaming 
+
+real	14m59.538s
+user	6m1.558s
+sys	6m55.557s
+nfs fozzie  sec2 concurrent
+
+real	17m55.893s
+user	6m14.536s
+sys	7m55.764s
+nfs fozzie sec2 streaming 
+
+real	16m36.393s
+user	6m15.095s
+sys	6m35.921s
+39
+das sec2
+
+real	15m47.643s
+user	6m11.355s
+sys	9m40.880s
+nfs sec2
+
+real	14m13.970s
+user	5m59.769s
+sys	6m31.652s
+nfs  sec2 concurrent
+
+real	16m48.004s
+user	6m13.403s
+sys	8m14.069s
+nfs sec2 streaming 
+
+real	15m17.058s
+user	6m22.894s
+sys	7m6.896s
+nfs fozzie  sec2 concurrent
+
+real	18m23.135s
+user	6m11.558s
+sys	7m8.861s
+nfs fozzie sec2 streaming 
+
+real	16m15.754s
+user	6m13.839s
+sys	6m49.196s
+40
+das sec2
+
+real	14m57.695s
+user	6m3.812s
+sys	8m58.644s
+nfs sec2
+
+real	14m2.992s
+user	6m0.182s
+sys	6m23.152s
+nfs  sec2 concurrent
+
+real	17m27.513s
+user	6m11.242s
+sys	8m29.260s
+nfs sec2 streaming 
+
+real	14m40.507s
+user	6m3.310s
+sys	6m55.491s
+nfs fozzie  sec2 concurrent
+
+real	18m50.885s
+user	6m22.902s
+sys	9m5.362s
+nfs fozzie sec2 streaming 
+
+real	16m5.394s
+user	6m5.775s
+sys	7m0.269s
+41
+das sec2
+
+real	14m57.581s
+user	6m5.175s
+sys	8m57.335s
+nfs sec2
+
+real	16m25.326s
+user	6m22.410s
+sys	8m54.757s
+nfs  sec2 concurrent
+
+real	16m24.191s
+user	6m22.183s
+sys	8m23.753s
+nfs sec2 streaming 
+
+real	14m27.479s
+user	6m1.048s
+sys	6m41.696s
+nfs fozzie  sec2 concurrent
+
+real	17m49.852s
+user	6m11.917s
+sys	7m2.935s
+nfs fozzie sec2 streaming 
+
+real	17m16.172s
+user	6m13.728s
+sys	8m0.662s
+42
+das sec2
+
+real	15m5.755s
+user	6m7.909s
+sys	9m1.286s
+nfs sec2
+
+real	14m48.922s
+user	6m12.253s
+sys	7m4.279s
+nfs  sec2 concurrent
+
+real	14m54.418s
+user	6m8.993s
+sys	7m8.039s
+nfs sec2 streaming 
+
+real	16m47.160s
+user	6m30.359s
+sys	9m3.099s
+nfs fozzie  sec2 concurrent
+
+real	17m51.224s
+user	6m5.707s
+sys	6m55.791s
+nfs fozzie sec2 streaming 
+
+real	15m44.623s
+user	6m4.542s
+sys	6m40.447s
+43
+das sec2
+
+real	15m24.161s
+user	6m6.183s
+sys	9m22.777s
+nfs sec2
+
+real	14m25.834s
+user	6m6.050s
+sys	6m41.527s
+nfs  sec2 concurrent
+
+real	14m48.048s
+user	6m8.293s
+sys	7m2.110s
+nfs sec2 streaming 
+
+real	17m18.205s
+user	7m3.342s
+sys	9m0.481s
+nfs fozzie  sec2 concurrent
+
+real	18m14.318s
+user	6m8.770s
+sys	6m51.206s
+nfs fozzie sec2 streaming 
+
+real	16m57.702s
+user	6m21.993s
+sys	8m17.560s
+44
+das sec2
+
+real	14m40.529s
+user	6m0.362s
+sys	8m44.983s
+nfs sec2
+
+real	14m7.755s
+user	6m0.587s
+sys	6m24.971s
+nfs  sec2 concurrent
+
+real	16m32.697s
+user	6m15.629s
+sys	8m30.035s
+nfs sec2 streaming 
+
+real	14m37.318s
+user	6m1.194s
+sys	6m45.895s
+nfs fozzie  sec2 concurrent
+
+real	18m20.282s
+user	6m19.701s
+sys	8m43.095s
+nfs fozzie sec2 streaming 
+
+real	16m20.209s
+user	6m8.922s
+sys	7m26.799s
+45
+das sec2
+
+real	14m43.202s
+user	6m1.560s
+sys	8m46.623s
+nfs sec2
+
+real	15m16.835s
+user	6m11.192s
+sys	7m26.783s
+nfs  sec2 concurrent
+
+real	15m15.045s
+user	6m12.375s
+sys	7m24.480s
+nfs sec2 streaming 
+
+real	16m54.017s
+user	6m21.280s
+sys	8m47.482s
+nfs fozzie  sec2 concurrent
+
+real	16m40.626s
+user	6m7.304s
+sys	6m32.923s
+nfs fozzie sec2 streaming 
+
+real	16m1.834s
+user	6m5.638s
+sys	7m4.638s
+46
+das sec2
+
+real	14m42.011s
+user	6m1.510s
+sys	8m45.347s
+nfs sec2
+
+real	14m7.417s
+user	6m1.381s
+sys	6m26.796s
+nfs  sec2 concurrent
+
+real	17m31.444s
+user	6m9.655s
+sys	8m6.156s
+nfs sec2 streaming 
+
+real	16m26.456s
+user	6m16.801s
+sys	8m19.463s
+nfs fozzie  sec2 concurrent
+
+real	17m48.871s
+user	6m13.126s
+sys	7m20.274s
+nfs fozzie sec2 streaming 
+
+real	16m51.736s
+user	6m17.009s
+sys	6m40.378s
+47
+das sec2
+
+real	15m47.681s
+user	6m10.520s
+sys	9m41.741s
+nfs sec2
+
+real	14m44.224s
+user	6m8.917s
+sys	6m58.641s
+nfs  sec2 concurrent
+
+real	15m7.255s
+user	6m13.752s
+sys	7m23.156s
+nfs sec2 streaming 
+
+real	17m6.192s
+user	6m23.075s
+sys	9m25.950s
+nfs fozzie  sec2 concurrent
+
+real	17m52.773s
+user	6m9.832s
+sys	7m23.635s
+nfs fozzie sec2 streaming 
+
+real	17m39.245s
+user	6m26.654s
+sys	8m51.730s
+48
+das sec2
+
+real	15m27.573s
+user	6m7.724s
+sys	9m24.701s
+nfs sec2
+
+real	14m30.427s
+user	6m10.489s
+sys	6m49.603s
+nfs  sec2 concurrent
+
+real	14m58.384s
+user	6m13.137s
+sys	7m7.274s
+nfs sec2 streaming 
+
+real	14m30.458s
+user	6m2.012s
+sys	6m43.382s
+nfs fozzie  sec2 concurrent
+
+real	15m53.684s
+user	6m7.236s
+sys	5m33.159s
+nfs fozzie sec2 streaming 
+
+real	16m49.215s
+user	6m9.604s
+sys	7m36.171s
+49
+das sec2
+
+real	15m55.868s
+user	6m10.512s
+sys	9m49.931s
+nfs sec2
+
+real	15m6.062s
+user	6m10.358s
+sys	7m15.119s
+nfs  sec2 concurrent
+
+real	15m7.276s
+user	6m11.616s
+sys	7m13.774s
+nfs sec2 streaming 
+
+real	14m50.844s
+user	6m9.626s
+sys	6m59.990s
+nfs fozzie  sec2 concurrent
+
+real	17m38.500s
+user	6m28.760s
+sys	8m23.105s
+nfs fozzie sec2 streaming 
+
+real	16m45.221s
+user	6m19.513s
+sys	6m58.856s
+50
+das sec2
+
+real	17m30.949s
+user	6m22.033s
+sys	11m12.949s
+nfs sec2
+
+real	15m35.853s
+user	6m26.968s
+sys	7m25.099s
+nfs  sec2 concurrent
+
+real	15m3.468s
+user	6m11.855s
+sys	7m11.800s
+nfs sec2 streaming 
+
+real	15m43.426s
+user	6m12.783s
+sys	7m49.170s
+nfs fozzie  sec2 concurrent
+
+real	17m38.575s
+user	6m27.810s
+sys	8m19.263s
+nfs fozzie sec2 streaming 
+
+real	16m41.865s
+user	6m19.722s
+sys	6m57.857s
+51
+das sec2
+
+real	15m3.256s
+user	6m2.483s
+sys	9m5.594s
+nfs sec2
+
+real	15m43.888s
+user	6m26.434s
+sys	8m11.673s
+nfs  sec2 concurrent
+
+real	16m55.726s
+user	6m27.437s
+sys	8m49.872s
+nfs sec2 streaming 
+
+real	16m25.300s
+user	6m18.840s
+sys	8m21.871s
+nfs fozzie  sec2 concurrent
+
+real	18m33.239s
+user	6m16.471s
+sys	7m45.246s
+nfs fozzie sec2 streaming 
+
+real	17m6.024s
+user	6m19.766s
+sys	8m55.280s
+52
+das sec2
+
+real	15m28.452s
+user	6m9.883s
+sys	9m23.235s
+nfs sec2
+
+real	15m54.560s
+user	6m24.356s
+sys	8m25.984s
+nfs  sec2 concurrent
+
+real	16m48.165s
+user	6m26.629s
+sys	8m27.175s
+nfs sec2 streaming 
+
+real	15m51.266s
+user	6m18.240s
+sys	7m51.148s
+nfs fozzie  sec2 concurrent
+
+real	18m14.559s
+user	6m11.631s
+sys	7m9.175s
+nfs fozzie sec2 streaming 
+
+real	16m50.755s
+user	6m13.481s
+sys	8m9.724s
+53
+das sec2
+
+real	16m10.514s
+user	6m14.126s
+sys	10m1.158s
+nfs sec2
+
+real	17m13.840s
+user	6m21.867s
+sys	8m43.763s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 13, in <module>
+    hf.create_dataset('dataset_2', data=d2)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/group.py", line 136, in create_dataset
+    dsid = dataset.make_new_dset(self, shape, dtype, data, **kwds)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/dataset.py", line 170, in make_new_dset
+    dset_id.write(h5s.ALL, h5s.ALL, data)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5d.pyx", line 222, in h5py.h5d.DatasetID.write
+  File "h5py/_proxy.pyx", line 132, in h5py._proxy.dset_rw
+  File "h5py/_proxy.pyx", line 93, in h5py._proxy.H5PY_H5Dwrite
+IOError: Can't write data (file write failed: time = Mon Mar 16 20:27:02 2020
+, filename = '/gonzo/hdf5/concurrent/20200316-202130-data.h5', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x7f46bc34e010, total write size = 142018052096, bytes this sub-write = 142018052096, bytes actually written = 18446744073709551615, offset = 257981949952)
+
+real	14m21.886s
+user	6m26.001s
+sys	6m12.948s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 13, in <module>
+    hf.create_dataset('dataset_2', data=d2)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/group.py", line 136, in create_dataset
+    dsid = dataset.make_new_dset(self, shape, dtype, data, **kwds)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/dataset.py", line 170, in make_new_dset
+    dset_id.write(h5s.ALL, h5s.ALL, data)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5d.pyx", line 222, in h5py.h5d.DatasetID.write
+  File "h5py/_proxy.pyx", line 132, in h5py._proxy.dset_rw
+  File "h5py/_proxy.pyx", line 93, in h5py._proxy.H5PY_H5Dwrite
+IOError: Can't write data (file write failed: time = Mon Mar 16 20:41:24 2020
+, filename = '/gonzo/hdf5/streaming/20200316-203545-data.h5', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x7ec9b5876010, total write size = 144165531648, bytes this sub-write = 144165531648, bytes actually written = 18446744073709551615, offset = 255834470400)
+
+real	13m55.003s
+user	6m16.942s
+sys	5m46.160s
+nfs fozzie  sec2 concurrent
+
+real	18m29.947s
+user	6m27.639s
+sys	9m12.056s
+nfs fozzie sec2 streaming 
+
+real	16m29.452s
+user	6m5.314s
+sys	6m48.611s
+54
+das sec2
+
+real	17m16.544s
+user	6m20.730s
+sys	10m59.382s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 15, in <module>
+    hf.create_dataset('dataset_2', data=d2)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/group.py", line 136, in create_dataset
+    dsid = dataset.make_new_dset(self, shape, dtype, data, **kwds)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/dataset.py", line 170, in make_new_dset
+    dset_id.write(h5s.ALL, h5s.ALL, data)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5d.pyx", line 222, in h5py.h5d.DatasetID.write
+  File "h5py/_proxy.pyx", line 132, in h5py._proxy.dset_rw
+  File "h5py/_proxy.pyx", line 93, in h5py._proxy.H5PY_H5Dwrite
+IOError: Can't write data (file write failed: time = Mon Mar 16 21:49:42 2020
+, filename = '/gonzo/hdf5/20200316-214348-data.h5', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x7f687d6a9010, total write size = 142018052096, bytes this sub-write = 142018052096, bytes actually written = 18446744073709551615, offset = 257981949952)
+
+real	13m46.938s
+user	6m11.966s
+sys	5m38.848s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200316-215934-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	10m3.868s
+user	6m30.708s
+sys	3m38.750s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200316-220814-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m32.123s
+user	6m16.288s
+sys	2m21.654s
+nfs fozzie  sec2 concurrent
+
+real	18m16.574s
+user	6m8.939s
+sys	7m5.179s
+nfs fozzie sec2 streaming 
+
+real	17m38.508s
+user	6m21.085s
+sys	8m39.602s
+55
+das sec2
+
+real	14m37.998s
+user	6m0.661s
+sys	8m42.199s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200316-230905-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m30.902s
+user	6m18.328s
+sys	2m18.311s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200316-231752-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m50.737s
+user	6m23.295s
+sys	2m33.191s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200316-232636-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m42.068s
+user	6m20.717s
+sys	2m24.849s
+nfs fozzie  sec2 concurrent
+
+real	18m42.216s
+user	6m17.918s
+sys	8m7.848s
+nfs fozzie sec2 streaming 
+
+real	16m18.510s
+user	6m6.290s
+sys	7m6.910s
+56
+das sec2
+
+real	14m58.315s
+user	6m6.537s
+sys	8m56.492s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-002617-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m45.613s
+user	6m5.566s
+sys	1m44.698s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-003351-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m31.061s
+user	6m3.392s
+sys	1m33.605s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-004136-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m48.548s
+user	6m7.581s
+sys	1m46.891s
+nfs fozzie  sec2 concurrent
+
+real	17m22.778s
+user	6m6.284s
+sys	6m48.816s
+nfs fozzie sec2 streaming 
+
+real	15m52.841s
+user	6m10.812s
+sys	6m32.747s
+57
+das sec2
+
+real	15m52.942s
+user	6m10.461s
+sys	9m46.724s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-014001-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m22.793s
+user	6m1.527s
+sys	1m27.094s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-014735-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m36.478s
+user	6m4.590s
+sys	1m37.805s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-015544-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m15.038s
+user	6m13.122s
+sys	2m7.731s
+nfs fozzie  sec2 concurrent
+
+real	17m28.559s
+user	6m6.530s
+sys	6m27.931s
+nfs fozzie sec2 streaming 
+
+real	16m53.839s
+user	6m25.630s
+sys	7m45.525s
+58
+das sec2
+
+real	15m55.648s
+user	6m11.322s
+sys	9m48.886s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-025520-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m22.724s
+user	6m1.146s
+sys	1m27.532s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-030412-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	9m7.269s
+user	6m25.758s
+sys	2m47.180s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-031222-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m0.846s
+user	6m10.629s
+sys	1m56.112s
+nfs fozzie  sec2 concurrent
+
+real	18m19.528s
+user	6m15.476s
+sys	8m9.182s
+nfs fozzie sec2 streaming 
+
+real	15m38.826s
+user	6m6.623s
+sys	6m17.731s
+59
+das sec2
+
+real	16m27.720s
+user	6m15.137s
+sys	10m17.255s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-041251-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m15.342s
+user	6m15.228s
+sys	2m5.868s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-042018-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m19.092s
+user	6m1.072s
+sys	1m24.015s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-042824-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m14.707s
+user	6m14.266s
+sys	2m6.297s
+nfs fozzie  sec2 concurrent
+
+real	18m0.886s
+user	6m13.005s
+sys	7m19.173s
+nfs fozzie sec2 streaming 
+
+real	16m38.151s
+user	6m13.514s
+sys	7m24.149s
+60
+das sec2
+
+real	17m18.368s
+user	6m19.618s
+sys	11m3.077s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-053020-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m7.064s
+user	6m12.268s
+sys	2m0.502s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-053751-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m24.512s
+user	6m1.315s
+sys	1m28.899s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-054544-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m57.940s
+user	6m10.262s
+sys	1m53.469s
+nfs fozzie  sec2 concurrent
+
+real	18m33.019s
+user	6m18.216s
+sys	8m10.057s
+nfs fozzie sec2 streaming 
+
+real	16m1.460s
+user	6m9.196s
+sys	6m1.881s
+61
+das sec2
+
+real	14m45.108s
+user	6m3.958s
+sys	8m46.109s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-064414-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m17.591s
+user	6m0.553s
+sys	1m22.925s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-065242-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m40.283s
+user	6m20.488s
+sys	2m25.593s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-070046-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m58.057s
+user	6m9.761s
+sys	1m54.027s
+nfs fozzie  sec2 concurrent
+
+real	17m56.924s
+user	6m11.767s
+sys	7m31.951s
+nfs fozzie sec2 streaming 
+
+real	16m52.501s
+user	6m13.036s
+sys	7m57.314s
+62
+das sec2
+
+real	16m40.624s
+user	6m15.677s
+sys	10m29.410s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-080132-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m19.473s
+user	6m0.474s
+sys	1m24.847s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-080917-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m49.743s
+user	6m8.201s
+sys	1m47.442s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-081716-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m0.379s
+user	6m10.614s
+sys	1m55.654s
+nfs fozzie  sec2 concurrent
+
+real	17m43.257s
+user	6m24.063s
+sys	7m57.959s
+nfs fozzie sec2 streaming 
+
+real	17m27.020s
+user	6m30.943s
+sys	8m32.121s
+63
+das sec2
+
+real	14m32.608s
+user	6m1.262s
+sys	8m36.146s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-091658-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m13.824s
+user	6m14.203s
+sys	2m5.361s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-092426-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m20.061s
+user	6m1.031s
+sys	1m24.988s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-093154-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m30.257s
+user	6m3.888s
+sys	1m32.337s
+nfs fozzie  sec2 concurrent
+
+real	18m9.981s
+user	6m10.033s
+sys	7m4.192s
+nfs fozzie sec2 streaming 
+
+real	15m47.634s
+user	6m8.973s
+sys	5m54.406s
+64
+das sec2
+
+real	15m50.452s
+user	6m2.712s
+sys	9m48.661s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-103133-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m11.225s
+user	6m12.747s
+sys	2m4.319s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-104012-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m44.757s
+user	6m21.654s
+sys	2m28.814s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-104836-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m20.254s
+user	6m14.520s
+sys	2m11.541s
+nfs fozzie  sec2 concurrent
+
+real	17m33.202s
+user	6m7.269s
+sys	7m10.470s
+nfs fozzie sec2 streaming 
+
+real	17m13.150s
+user	6m13.393s
+sys	7m57.515s
+65
+das sec2
+
+real	18m11.587s
+user	6m21.693s
+sys	11m35.705s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-115055-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m24.332s
+user	6m2.175s
+sys	1m28.009s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-115811-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m15.063s
+user	6m0.310s
+sys	1m20.749s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-120531-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m20.356s
+user	6m1.849s
+sys	1m24.451s
+nfs fozzie  sec2 concurrent
+
+real	18m2.078s
+user	6m10.114s
+sys	7m13.093s
+nfs fozzie sec2 streaming 
+
+real	16m18.377s
+user	6m12.855s
+sys	7m22.165s
+66
+das sec2
+
+real	17m29.474s
+user	6m21.457s
+sys	11m12.433s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-130732-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m32.288s
+user	6m18.001s
+sys	2m20.018s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-131506-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m24.488s
+user	6m2.627s
+sys	1m27.058s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-132232-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m25.563s
+user	6m3.337s
+sys	1m28.050s
+nfs fozzie  sec2 concurrent
+
+real	17m11.602s
+user	6m6.779s
+sys	6m19.292s
+nfs fozzie sec2 streaming 
+
+real	16m10.737s
+user	6m6.862s
+sys	7m0.510s
+67
+das sec2
+
+real	17m17.880s
+user	6m19.843s
+sys	11m2.492s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-142236-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m38.227s
+user	6m4.803s
+sys	1m39.348s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-143003-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m24.739s
+user	6m2.993s
+sys	1m27.694s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-143730-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m27.925s
+user	6m3.703s
+sys	1m30.190s
+nfs fozzie  sec2 concurrent
+
+real	17m27.512s
+user	6m9.867s
+sys	7m16.693s
+nfs fozzie sec2 streaming 
+
+real	16m24.808s
+user	6m9.985s
+sys	7m18.966s
+68
+das sec2
+
+real	14m33.478s
+user	6m2.104s
+sys	8m36.304s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-153501-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m17.486s
+user	6m1.466s
+sys	1m21.974s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-154216-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m15.546s
+user	6m0.114s
+sys	1m21.435s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-154939-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m24.293s
+user	6m2.896s
+sys	1m27.359s
+nfs fozzie  sec2 concurrent
+
+real	16m47.376s
+user	6m21.768s
+sys	7m23.288s
+nfs fozzie sec2 streaming 
+
+real	16m2.562s
+user	6m3.865s
+sys	6m54.007s
+69
+das sec2
+
+real	17m8.518s
+user	6m20.785s
+sys	10m52.344s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-164905-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m41.366s
+user	6m5.757s
+sys	1m41.401s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-165650-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m46.412s
+user	6m7.117s
+sys	1m45.225s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-170423-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m30.048s
+user	6m3.060s
+sys	1m32.775s
+nfs fozzie  sec2 concurrent
+
+real	17m47.352s
+user	6m11.767s
+sys	7m26.801s
+nfs fozzie sec2 streaming 
+
+real	16m53.296s
+user	6m13.683s
+sys	7m34.582s
+70
+das sec2
+
+real	15m45.480s
+user	6m11.298s
+sys	9m38.715s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 14, in <module>
+    hf.create_dataset('dataset_1', data=d1)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/group.py", line 136, in create_dataset
+    dsid = dataset.make_new_dset(self, shape, dtype, data, **kwds)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/dataset.py", line 170, in make_new_dset
+    dset_id.write(h5s.ALL, h5s.ALL, data)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5d.pyx", line 222, in h5py.h5d.DatasetID.write
+  File "h5py/_proxy.pyx", line 132, in h5py._proxy.dset_rw
+  File "h5py/_proxy.pyx", line 93, in h5py._proxy.H5PY_H5Dwrite
+IOError: Can't write data (file write failed: time = Tue Mar 17 18:04:37 2020
+, filename = '/gonzo/hdf5/20200317-180420-data.h5', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x7efc3c09f010, total write size = 180672684032, bytes this sub-write = 180672684032, bytes actually written = 18446744073709551615, offset = 19327318016)
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')
+Exception RuntimeError: RuntimeError("Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')",) in 'h5py._objects.ObjectID.__dealloc__' ignored
+allrun.sh: line 11: 195889 Segmentation fault      (core dumped) python nfs_writer.py
+
+real	8m7.049s
+user	6m8.553s
+sys	1m55.109s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 12, in <module>
+    hf.create_dataset('dataset_1', data=d1)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/group.py", line 136, in create_dataset
+    dsid = dataset.make_new_dset(self, shape, dtype, data, **kwds)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/dataset.py", line 170, in make_new_dset
+    dset_id.write(h5s.ALL, h5s.ALL, data)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5d.pyx", line 222, in h5py.h5d.DatasetID.write
+  File "h5py/_proxy.pyx", line 132, in h5py._proxy.dset_rw
+  File "h5py/_proxy.pyx", line 93, in h5py._proxy.H5PY_H5Dwrite
+IOError: Can't write data (file write failed: time = Tue Mar 17 18:12:42 2020
+, filename = '/gonzo/hdf5/concurrent/20200317-181227-data.h5', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x7eee9f0d4010, total write size = 187115122688, bytes this sub-write = 187115122688, bytes actually written = 18446744073709551615, offset = 12884879360)
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')
+Exception RuntimeError: RuntimeError("Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')",) in 'h5py._objects.ObjectID.__dealloc__' ignored
+allrun.sh: line 17: 199851 Segmentation fault      (core dumped) python nfs_writer_conncurrent.py
+
+real	8m3.765s
+user	6m6.365s
+sys	1m53.653s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 12, in <module>
+    hf.create_dataset('dataset_1', data=d1)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/group.py", line 136, in create_dataset
+    dsid = dataset.make_new_dset(self, shape, dtype, data, **kwds)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/dataset.py", line 170, in make_new_dset
+    dset_id.write(h5s.ALL, h5s.ALL, data)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5d.pyx", line 222, in h5py.h5d.DatasetID.write
+  File "h5py/_proxy.pyx", line 132, in h5py._proxy.dset_rw
+  File "h5py/_proxy.pyx", line 93, in h5py._proxy.H5PY_H5Dwrite
+IOError: Can't write data (file write failed: time = Tue Mar 17 18:21:52 2020
+, filename = '/gonzo/hdf5/streaming/20200317-182135-data.h5', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x7f07b0a03010, total write size = 184967643136, bytes this sub-write = 184967643136, bytes actually written = 18446744073709551615, offset = 15032358912)
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')
+Exception RuntimeError: RuntimeError("Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')",) in 'h5py._objects.ObjectID.__dealloc__' ignored
+allrun.sh: line 20: 203848 Segmentation fault      (core dumped) python nfs_writer_streaming.py
+
+real	9m20.001s
+user	6m25.413s
+sys	2m55.407s
+nfs fozzie  sec2 concurrent
+
+real	18m19.501s
+user	6m11.177s
+sys	7m4.359s
+nfs fozzie sec2 streaming 
+
+real	15m35.845s
+user	6m4.617s
+sys	6m25.399s
+71
+das sec2
+
+real	17m23.149s
+user	6m22.648s
+sys	11m5.079s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-192258-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m42.458s
+user	6m8.323s
+sys	1m39.942s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-193103-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m9.776s
+user	6m13.850s
+sys	2m1.796s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-193833-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m21.982s
+user	6m1.733s
+sys	1m26.195s
+nfs fozzie  sec2 concurrent
+
+real	17m57.598s
+user	6m11.034s
+sys	7m15.019s
+nfs fozzie sec2 streaming 
+
+real	16m50.441s
+user	6m19.526s
+sys	8m8.818s
+72
+das sec2
+
+real	14m32.948s
+user	6m0.243s
+sys	8m37.520s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-203706-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m21.871s
+user	6m2.206s
+sys	1m25.590s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-204424-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.677s
+user	5m59.000s
+sys	1m21.615s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-205212-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m53.917s
+user	6m8.961s
+sys	1m50.822s
+nfs fozzie  sec2 concurrent
+
+real	17m46.416s
+user	6m7.954s
+sys	6m42.648s
+nfs fozzie sec2 streaming 
+
+real	17m21.170s
+user	6m10.888s
+sys	7m14.401s
+73
+das sec2
+
+real	17m33.477s
+user	6m6.729s
+sys	11m17.873s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-215441-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m2.616s
+user	6m10.847s
+sys	1m57.624s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-220221-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m36.481s
+user	6m4.629s
+sys	1m37.459s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-220947-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m22.976s
+user	6m1.412s
+sys	1m27.555s
+nfs fozzie  sec2 concurrent
+
+real	18m24.498s
+user	6m10.127s
+sys	7m25.825s
+nfs fozzie sec2 streaming 
+
+real	16m18.340s
+user	6m10.926s
+sys	7m0.275s
+74
+das sec2
+
+real	16m49.448s
+user	6m10.575s
+sys	10m38.275s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200317-231051-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m46.883s
+user	6m7.147s
+sys	1m45.614s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200317-231905-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m19.094s
+user	6m15.114s
+sys	2m9.397s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200317-232637-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m23.801s
+user	6m1.467s
+sys	1m28.300s
+nfs fozzie  sec2 concurrent
+
+real	18m3.314s
+user	6m5.793s
+sys	6m48.114s
+nfs fozzie sec2 streaming 
+
+real	17m13.476s
+user	6m29.975s
+sys	8m23.958s
+75
+das sec2
+
+real	17m19.942s
+user	6m0.853s
+sys	11m8.338s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-002823-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m20.002s
+user	6m1.263s
+sys	1m24.488s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-003539-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.086s
+user	5m59.543s
+sys	1m22.517s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-004350-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m20.392s
+user	6m15.286s
+sys	2m10.959s
+nfs fozzie  sec2 concurrent
+
+real	19m4.375s
+user	6m21.408s
+sys	8m21.841s
+nfs fozzie sec2 streaming 
+
+real	16m2.577s
+user	6m3.438s
+sys	6m34.905s
+76
+das sec2
+
+real	19m5.202s
+user	6m1.319s
+sys	12m43.907s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-014735-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m43.956s
+user	6m6.821s
+sys	1m43.045s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-015456-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.481s
+user	6m0.453s
+sys	1m22.003s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-020226-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m32.628s
+user	6m4.562s
+sys	1m33.978s
+nfs fozzie  sec2 concurrent
+
+real	18m9.158s
+user	6m7.884s
+sys	7m8.912s
+nfs fozzie sec2 streaming 
+
+real	15m53.205s
+user	6m2.999s
+sys	6m51.903s
+77
+das sec2
+
+real	15m50.918s
+user	6m0.174s
+sys	9m43.098s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-030205-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m2.836s
+user	6m11.368s
+sys	1m57.245s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-030928-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.048s
+user	6m0.346s
+sys	1m21.413s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-031719-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m57.771s
+user	6m11.003s
+sys	1m52.634s
+nfs fozzie  sec2 concurrent
+
+real	17m54.205s
+user	6m5.816s
+sys	6m39.926s
+nfs fozzie sec2 streaming 
+
+real	17m24.089s
+user	6m15.717s
+sys	7m56.754s
+78
+das sec2
+
+real	17m47.852s
+user	6m11.660s
+sys	11m18.605s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-042025-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m15.978s
+user	6m15.555s
+sys	2m6.225s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-042905-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m44.139s
+user	6m21.602s
+sys	2m27.705s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-043641-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m22.476s
+user	6m5.568s
+sys	1m22.886s
+nfs fozzie  sec2 concurrent
+
+real	18m28.702s
+user	6m15.472s
+sys	7m32.139s
+nfs fozzie sec2 streaming 
+
+real	16m28.346s
+user	6m10.418s
+sys	7m21.481s
+79
+das sec2
+
+real	18m30.509s
+user	6m19.269s
+sys	12m6.326s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-053910-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.781s
+user	6m0.735s
+sys	1m22.023s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-054639-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m30.564s
+user	6m3.994s
+sys	1m32.409s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-055357-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m15.560s
+user	6m0.457s
+sys	1m21.003s
+nfs fozzie  sec2 concurrent
+
+real	16m11.267s
+user	6m13.042s
+sys	6m18.517s
+nfs fozzie sec2 streaming 
+
+real	17m1.340s
+user	6m16.254s
+sys	8m30.685s
+80
+das sec2
+
+real	16m1.631s
+user	6m9.173s
+sys	9m52.402s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-065251-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m3.210s
+user	6m11.289s
+sys	1m57.741s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-070029-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m31.944s
+user	6m4.202s
+sys	1m33.670s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-070823-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m59.471s
+user	6m10.853s
+sys	1m54.480s
+nfs fozzie  sec2 concurrent
+
+real	17m28.804s
+user	6m27.309s
+sys	8m0.770s
+nfs fozzie sec2 streaming 
+
+real	16m21.896s
+user	6m5.942s
+sys	6m44.765s
+81
+das sec2
+
+real	14m59.475s
+user	6m3.739s
+sys	8m59.712s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-080740-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m44.021s
+user	6m20.995s
+sys	2m28.741s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-081521-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m29.573s
+user	6m2.874s
+sys	1m32.671s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-082252-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m31.679s
+user	6m3.590s
+sys	1m33.374s
+nfs fozzie  sec2 concurrent
+
+real	17m14.512s
+user	6m13.204s
+sys	6m50.549s
+nfs fozzie sec2 streaming 
+
+real	16m30.088s
+user	6m7.698s
+sys	7m22.072s
+82
+das sec2
+
+real	15m19.004s
+user	6m0.305s
+sys	9m17.406s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-092138-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m57.670s
+user	6m9.688s
+sys	1m53.805s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-092955-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m20.177s
+user	6m14.983s
+sys	2m11.032s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-093829-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m35.897s
+user	6m19.814s
+sys	2m20.843s
+nfs fozzie  sec2 concurrent
+
+real	17m48.990s
+user	6m8.201s
+sys	6m45.654s
+nfs fozzie sec2 streaming 
+
+real	17m18.935s
+user	6m22.947s
+sys	7m58.948s
+83
+das sec2
+
+real	14m39.621s
+user	6m2.354s
+sys	8m42.168s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-103820-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m11.751s
+user	6m13.859s
+sys	2m3.694s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-104613-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m50.240s
+user	6m8.267s
+sys	1m47.116s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-105335-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.578s
+user	5m59.737s
+sys	1m21.080s
+nfs fozzie  sec2 concurrent
+
+real	18m28.926s
+user	6m19.064s
+sys	7m42.349s
+nfs fozzie sec2 streaming 
+
+real	16m22.929s
+user	6m6.744s
+sys	7m8.542s
+84
+das sec2
+
+real	14m56.206s
+user	6m3.521s
+sys	8m57.338s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-115341-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m47.227s
+user	6m22.972s
+sys	2m30.013s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-120111-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.682s
+user	6m1.444s
+sys	1m21.119s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-120845-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m37.744s
+user	6m4.907s
+sys	1m38.792s
+nfs fozzie  sec2 concurrent
+
+real	19m11.686s
+user	6m20.527s
+sys	8m34.076s
+nfs fozzie sec2 streaming 
+
+real	15m46.422s
+user	6m14.129s
+sys	6m29.781s
+85
+das sec2
+
+real	14m37.706s
+user	6m0.270s
+sys	8m42.359s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-130804-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m0.323s
+user	6m10.136s
+sys	1m55.862s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-131527-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.776s
+user	6m0.724s
+sys	1m21.734s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-132313-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m51.252s
+user	6m8.291s
+sys	1m48.858s
+nfs fozzie  sec2 concurrent
+
+real	18m12.036s
+user	6m11.213s
+sys	7m19.878s
+nfs fozzie sec2 streaming 
+
+real	17m4.570s
+user	6m21.224s
+sys	7m30.429s
+86
+das sec2
+
+real	14m29.628s
+user	6m0.002s
+sys	8m34.555s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-142216-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m24.785s
+user	6m2.865s
+sys	1m26.980s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-142945-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m30.145s
+user	6m5.285s
+sys	1m30.810s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-143731-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m49.178s
+user	6m8.485s
+sys	1m46.453s
+nfs fozzie  sec2 concurrent
+
+real	15m54.153s
+user	6m8.362s
+sys	5m38.206s
+nfs fozzie sec2 streaming 
+
+real	16m15.443s
+user	6m3.185s
+sys	6m42.816s
+87
+das sec2
+
+real	17m19.037s
+user	6m21.414s
+sys	11m1.847s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-153630-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m38.423s
+user	6m4.781s
+sys	1m39.512s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-154438-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m12.987s
+user	6m13.691s
+sys	2m5.144s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-155223-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m40.812s
+user	6m7.237s
+sys	1m39.368s
+nfs fozzie  sec2 concurrent
+
+real	18m24.747s
+user	6m8.226s
+sys	6m59.406s
+nfs fozzie sec2 streaming 
+
+real	16m58.801s
+user	6m13.982s
+sys	7m37.740s
+88
+das sec2
+
+real	15m7.077s
+user	6m1.644s
+sys	9m7.982s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-165247-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m8.419s
+user	6m12.602s
+sys	2m0.498s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-170027-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m35.409s
+user	6m4.465s
+sys	1m36.833s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-170747-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.465s
+user	6m1.212s
+sys	1m21.234s
+nfs fozzie  sec2 concurrent
+
+real	17m49.132s
+user	6m9.161s
+sys	6m54.150s
+nfs fozzie sec2 streaming 
+
+real	15m58.266s
+user	6m4.587s
+sys	6m57.441s
+89
+das sec2
+
+real	16m50.910s
+user	6m17.050s
+sys	10m35.625s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 14, in <module>
+    hf.create_dataset('dataset_1', data=d1)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/group.py", line 136, in create_dataset
+    dsid = dataset.make_new_dset(self, shape, dtype, data, **kwds)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/dataset.py", line 170, in make_new_dset
+    dset_id.write(h5s.ALL, h5s.ALL, data)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5d.pyx", line 222, in h5py.h5d.DatasetID.write
+  File "h5py/_proxy.pyx", line 132, in h5py._proxy.dset_rw
+  File "h5py/_proxy.pyx", line 93, in h5py._proxy.H5PY_H5Dwrite
+IOError: Can't write data (file write failed: time = Wed Mar 18 18:07:46 2020
+, filename = '/gonzo/hdf5/20200318-180728-data.h5', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x7f76b0de9010, total write size = 180672684032, bytes this sub-write = 180672684032, bytes actually written = 18446744073709551615, offset = 19327318016)
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')
+Exception RuntimeError: RuntimeError("Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')",) in 'h5py._objects.ObjectID.__dealloc__' ignored
+allrun.sh: line 11: 217094 Segmentation fault      (core dumped) python nfs_writer.py
+
+real	7m35.298s
+user	5m59.696s
+sys	1m31.027s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 12, in <module>
+    hf.create_dataset('dataset_1', data=d1)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/group.py", line 136, in create_dataset
+    dsid = dataset.make_new_dset(self, shape, dtype, data, **kwds)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/dataset.py", line 170, in make_new_dset
+    dset_id.write(h5s.ALL, h5s.ALL, data)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5d.pyx", line 222, in h5py.h5d.DatasetID.write
+  File "h5py/_proxy.pyx", line 132, in h5py._proxy.dset_rw
+  File "h5py/_proxy.pyx", line 93, in h5py._proxy.H5PY_H5Dwrite
+IOError: Can't write data (file write failed: time = Wed Mar 18 18:15:27 2020
+, filename = '/gonzo/hdf5/concurrent/20200318-181516-data.h5', file descriptor = 3, errno = 28, error message = 'No space left on device', buf = 0x7f8cef079010, total write size = 191410081792, bytes this sub-write = 191410081792, bytes actually written = 18446744073709551615, offset = 8589920256)
+Traceback (most recent call last):
+  File "h5py/_objects.pyx", line 193, in h5py._objects.ObjectID.__dealloc__
+RuntimeError: Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')
+Exception RuntimeError: RuntimeError("Can't decrement id ref count (unable to extend file properly, errno = 28, error message = 'No space left on device')",) in 'h5py._objects.ObjectID.__dealloc__' ignored
+allrun.sh: line 17: 220931 Segmentation fault      (core dumped) python nfs_writer_conncurrent.py
+
+real	7m43.039s
+user	6m2.968s
+sys	1m42.527s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-182256-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m25.575s
+user	6m2.307s
+sys	1m29.248s
+nfs fozzie  sec2 concurrent
+
+real	16m47.000s
+user	6m15.903s
+sys	6m49.490s
+nfs fozzie sec2 streaming 
+
+real	17m15.523s
+user	6m17.246s
+sys	8m11.007s
+90
+das sec2
+
+real	15m1.932s
+user	6m2.605s
+sys	9m1.830s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-192111-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m24.824s
+user	6m1.843s
+sys	1m28.937s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-192851-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m43.477s
+user	6m6.934s
+sys	1m42.365s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-193658-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m10.793s
+user	6m13.718s
+sys	2m2.870s
+nfs fozzie  sec2 concurrent
+
+real	17m32.374s
+user	6m27.727s
+sys	8m39.395s
+nfs fozzie sec2 streaming 
+
+real	16m27.680s
+user	6m3.987s
+sys	6m46.398s
+91
+das sec2
+
+real	18m41.068s
+user	6m14.705s
+sys	12m15.986s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-203855-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.305s
+user	6m0.114s
+sys	1m22.162s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-204630-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m38.270s
+user	6m4.927s
+sys	1m39.245s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-205356-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m23.959s
+user	6m2.463s
+sys	1m26.929s
+nfs fozzie  sec2 concurrent
+
+real	17m46.509s
+user	6m12.572s
+sys	7m27.234s
+nfs fozzie sec2 streaming 
+
+real	16m40.905s
+user	6m11.144s
+sys	7m3.322s
+92
+das sec2
+
+real	15m42.768s
+user	6m10.354s
+sys	9m37.021s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-215441-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	9m2.048s
+user	6m24.953s
+sys	2m42.202s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-220234-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m42.566s
+user	6m6.281s
+sys	1m42.056s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-221045-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m15.686s
+user	6m14.003s
+sys	2m7.506s
+nfs fozzie  sec2 concurrent
+
+real	18m28.125s
+user	6m12.459s
+sys	7m53.065s
+nfs fozzie sec2 streaming 
+
+real	17m33.565s
+user	6m26.020s
+sys	8m1.145s
+93
+das sec2
+
+real	16m6.319s
+user	6m14.846s
+sys	9m55.889s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200318-231210-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m22.397s
+user	6m2.440s
+sys	1m25.804s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200318-231951-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m45.507s
+user	6m7.645s
+sys	1m43.748s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200318-232736-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m44.804s
+user	6m7.267s
+sys	1m43.408s
+nfs fozzie  sec2 concurrent
+
+real	18m49.760s
+user	6m14.105s
+sys	7m15.910s
+nfs fozzie sec2 streaming 
+
+real	16m43.413s
+user	6m11.509s
+sys	7m18.179s
+94
+das sec2
+
+real	15m36.639s
+user	6m11.372s
+sys	9m29.784s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200319-002843-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m12.820s
+user	6m13.750s
+sys	2m4.907s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200319-003703-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m22.684s
+user	6m16.425s
+sys	2m12.046s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200319-004434-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m21.709s
+user	6m0.650s
+sys	1m26.362s
+nfs fozzie  sec2 concurrent
+
+real	17m57.142s
+user	6m11.272s
+sys	7m30.621s
+nfs fozzie sec2 streaming 
+
+real	17m23.816s
+user	6m19.895s
+sys	8m10.420s
+95
+das sec2
+
+real	14m51.135s
+user	6m3.290s
+sys	8m52.743s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200319-014352-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m17.823s
+user	6m0.912s
+sys	1m22.875s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200319-015147-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m1.565s
+user	6m10.786s
+sys	1m56.628s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200319-015913-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m20.650s
+user	6m1.842s
+sys	1m24.679s
+nfs fozzie  sec2 concurrent
+
+real	16m45.610s
+user	6m18.327s
+sys	7m12.869s
+nfs fozzie sec2 streaming 
+
+real	16m32.814s
+user	6m5.342s
+sys	7m10.167s
+96
+das sec2
+
+real	14m57.625s
+user	6m3.591s
+sys	8m57.696s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200319-025640-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m22.310s
+user	6m1.834s
+sys	1m26.445s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200319-030358-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.647s
+user	6m0.210s
+sys	1m22.425s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200319-031218-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m32.400s
+user	6m19.862s
+sys	2m18.281s
+nfs fozzie  sec2 concurrent
+
+real	18m28.280s
+user	6m19.243s
+sys	8m31.260s
+nfs fozzie sec2 streaming 
+
+real	16m5.550s
+user	6m5.273s
+sys	6m27.983s
+97
+das sec2
+
+real	17m39.647s
+user	6m22.976s
+sys	11m20.926s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200319-041351-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m19.607s
+user	6m1.781s
+sys	1m23.799s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200319-042108-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.370s
+user	6m0.037s
+sys	1m22.338s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200319-042927-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m29.995s
+user	6m17.900s
+sys	2m17.796s
+nfs fozzie  sec2 concurrent
+
+real	17m54.431s
+user	6m12.958s
+sys	7m19.603s
+nfs fozzie sec2 streaming 
+
+real	16m51.082s
+user	6m14.331s
+sys	8m15.302s
+98
+das sec2
+
+real	15m14.965s
+user	6m4.154s
+sys	9m13.498s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200319-052914-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m58.130s
+user	6m10.244s
+sys	1m53.690s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200319-053722-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m10.762s
+user	6m12.700s
+sys	2m3.845s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200319-054453-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m23.455s
+user	6m2.618s
+sys	1m26.827s
+nfs fozzie  sec2 concurrent
+
+real	16m56.365s
+user	6m12.774s
+sys	6m24.860s
+nfs fozzie sec2 streaming 
+
+real	15m46.988s
+user	6m5.202s
+sys	6m54.849s
+99
+das sec2
+
+real	14m40.876s
+user	6m2.950s
+sys	8m42.858s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200319-064130-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m23.488s
+user	6m2.197s
+sys	1m27.123s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200319-064847-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.352s
+user	6m0.178s
+sys	1m22.075s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200319-065604-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.094s
+user	6m0.088s
+sys	1m21.997s
+nfs fozzie  sec2 concurrent
+
+real	17m26.063s
+user	6m5.937s
+sys	6m52.242s
+nfs fozzie sec2 streaming 
+
+real	16m19.834s
+user	6m6.038s
+sys	6m19.446s
+100
+das sec2
+
+real	15m16.980s
+user	6m8.765s
+sys	9m12.455s
+nfs sec2
+Traceback (most recent call last):
+  File "nfs_writer.py", line 12, in <module>
+    hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/20200319-075411-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m20.465s
+user	6m0.832s
+sys	1m25.549s
+nfs  sec2 concurrent
+Traceback (most recent call last):
+  File "nfs_writer_conncurrent.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/concurrent/20200319-080218-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	8m15.077s
+user	6m13.695s
+sys	2m6.877s
+nfs sec2 streaming 
+Traceback (most recent call last):
+  File "nfs_writer_streaming.py", line 10, in <module>
+    hf = h5py.File('/gonzo/hdf5/streaming/'+timestr+'-data.h5', 'w')
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 408, in __init__
+    swmr=swmr)
+  File "/usr/lib64/python2.7/site-packages/h5py/_hl/files.py", line 179, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 108, in h5py.h5f.create
+IOError: Unable to create file (unable to open file: name = '/gonzo/hdf5/streaming/20200319-080944-data.h5', errno = 28, error message = 'No space left on device', flags = 13, o_flags = 242)
+
+real	7m16.508s
+user	6m0.201s
+sys	1m22.231s
+nfs fozzie  sec2 concurrent
+
+real	17m55.107s
+user	6m7.203s
+sys	6m46.234s
+nfs fozzie sec2 streaming 
+
+real	17m8.458s
+user	6m12.778s
+sys	7m40.077s
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# 

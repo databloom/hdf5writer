@@ -1,0 +1,742 @@
+
+for i in {1..100}; do bash allrun.sh ;done [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Pecho >screenlog.0
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# echo >screenlog.0for i in {1..100}; do bash allrun.sh ;done 
+das sec2
+
+real	18m28.581s
+user	6m28.266s
+sys	12m4.756s
+nfs sec2
+
+real	16m30.175s
+user	6m28.116s
+sys	8m48.028s
+nfs  sec2 concurrent
+
+real	27m20.856s
+user	6m29.527s
+sys	19m17.281s
+nfs sec2 streaming 
+
+real	18m0.068s
+user	6m29.999s
+sys	9m53.067s
+das sec2
+
+real	18m10.887s
+user	6m28.060s
+sys	11m45.486s
+nfs sec2
+
+real	16m15.609s
+user	6m27.544s
+sys	8m32.062s
+nfs  sec2 concurrent
+
+real	19m59.053s
+user	6m30.219s
+sys	11m19.120s
+nfs sec2 streaming 
+
+real	19m10.428s
+user	6m26.477s
+sys	11m14.782s
+das sec2
+
+real	20m11.910s
+user	6m29.006s
+sys	13m45.859s
+nfs sec2
+
+real	16m21.420s
+user	6m29.173s
+sys	8m38.767s
+nfs  sec2 concurrent
+
+real	22m51.713s
+user	6m28.895s
+sys	14m41.526s
+nfs sec2 streaming 
+
+real	20m6.415s
+user	6m30.102s
+sys	11m48.995s
+das sec2
+
+real	18m6.499s
+user	6m28.732s
+sys	11m41.095s
+nfs sec2
+
+real	17m47.541s
+user	6m27.288s
+sys	9m46.499s
+nfs  sec2 concurrent
+
+real	16m33.339s
+user	6m27.515s
+sys	8m50.948s
+nfs sec2 streaming 
+
+real	16m34.131s
+user	6m28.277s
+sys	8m47.861s
+das sec2
+
+real	20m5.968s
+user	6m29.031s
+sys	13m40.445s
+nfs sec2
+
+real	18m52.166s
+user	6m28.833s
+sys	10m40.762s
+nfs  sec2 concurrent
+
+real	16m13.350s
+user	6m30.048s
+sys	8m28.169s
+nfs sec2 streaming 
+
+real	16m35.792s
+user	6m27.725s
+sys	8m49.005s
+das sec2
+
+real	18m22.644s
+user	6m26.842s
+sys	11m57.966s
+nfs sec2
+
+real	19m29.423s
+user	6m29.737s
+sys	11m2.403s
+nfs  sec2 concurrent
+
+real	18m58.343s
+user	6m28.990s
+sys	10m43.714s
+nfs sec2 streaming 
+
+real	16m34.088s
+user	6m27.978s
+sys	8m46.117s
+das sec2
+
+real	19m24.974s
+user	6m28.237s
+sys	13m0.617s
+nfs sec2
+
+real	19m26.670s
+user	6m27.679s
+sys	11m1.595s
+nfs  sec2 concurrent
+
+real	16m45.199s
+user	6m28.231s
+sys	8m57.413s
+nfs sec2 streaming 
+
+real	16m53.491s
+user	6m26.960s
+sys	8m59.579s
+das sec2
+
+real	20m5.876s
+user	6m29.309s
+sys	13m40.363s
+nfs sec2
+
+real	19m26.565s
+user	6m28.775s
+sys	11m8.119s
+nfs  sec2 concurrent
+
+real	18m57.164s
+user	6m29.670s
+sys	10m46.960s
+nfs sec2 streaming 
+
+real	16m28.485s
+user	6m29.565s
+sys	8m36.843s
+das sec2
+
+real	18m1.433s
+user	6m29.885s
+sys	11m35.915s
+nfs sec2
+
+real	17m0.763s
+user	6m28.163s
+sys	9m16.559s
+nfs  sec2 concurrent
+
+real	17m6.761s
+user	6m28.932s
+sys	9m19.055s
+nfs sec2 streaming 
+
+real	19m24.984s
+user	6m26.370s
+sys	10m44.616s
+das sec2
+
+real	18m1.557s
+user	6m28.570s
+sys	11m37.040s
+nfs sec2
+
+real	16m31.118s
+user	6m27.669s
+sys	8m47.830s
+nfs  sec2 concurrent
+
+real	17m16.853s
+user	6m28.621s
+sys	9m31.610s
+nfs sec2 streaming 
+
+real	18m55.449s
+user	6m30.508s
+sys	10m55.191s
+das sec2
+
+real	19m55.595s
+user	6m29.772s
+sys	13m29.829s
+nfs sec2
+
+real	18m4.289s
+user	6m30.385s
+sys	10m2.056s
+nfs  sec2 concurrent
+
+real	17m32.769s
+user	6m28.122s
+sys	9m35.526s
+nfs sec2 streaming 
+
+real	18m57.360s
+user	6m31.864s
+sys	10m32.087s
+das sec2
+
+real	19m54.578s
+user	6m28.796s
+sys	13m29.782s
+nfs sec2
+
+real	16m38.645s
+user	6m28.955s
+sys	8m53.195s
+nfs  sec2 concurrent
+
+real	21m18.235s
+user	6m30.000s
+sys	12m44.433s
+nfs sec2 streaming 
+
+real	19m39.821s
+user	6m28.116s
+sys	11m6.519s
+das sec2
+
+real	18m9.338s
+user	6m28.438s
+sys	11m45.166s
+nfs sec2
+
+real	18m41.422s
+user	6m28.846s
+sys	10m26.293s
+nfs  sec2 concurrent
+
+real	16m31.145s
+user	6m28.462s
+sys	8m45.027s
+nfs sec2 streaming 
+
+real	17m14.017s
+user	6m28.772s
+sys	9m17.351s
+das sec2
+
+real	18m30.851s
+user	6m28.001s
+sys	12m6.940s
+nfs sec2
+
+real	16m30.423s
+user	6m30.208s
+sys	8m41.993s
+nfs  sec2 concurrent
+
+real	18m12.092s
+user	6m29.005s
+sys	10m5.782s
+nfs sec2 streaming 
+
+real	17m28.586s
+user	6m28.856s
+sys	9m31.257s
+das sec2
+
+real	19m44.490s
+user	6m28.117s
+sys	13m20.153s
+nfs sec2
+
+real	19m18.767s
+user	6m29.149s
+sys	10m51.866s
+nfs  sec2 concurrent
+
+real	17m27.712s
+user	6m28.443s
+sys	9m39.015s
+nfs sec2 streaming 
+
+real	19m35.829s
+user	6m30.205s
+sys	11m5.323s
+das sec2
+
+real	18m38.416s
+user	6m29.608s
+sys	12m13.041s
+nfs sec2
+
+real	16m33.434s
+user	6m30.041s
+sys	8m46.359s
+nfs  sec2 concurrent
+
+real	17m39.911s
+user	6m30.621s
+sys	9m50.896s
+nfs sec2 streaming 
+
+real	17m6.214s
+user	6m28.661s
+sys	9m12.315s
+das sec2
+
+real	20m7.850s
+user	6m30.065s
+sys	13m41.873s
+nfs sec2
+
+real	16m43.087s
+user	6m28.618s
+sys	8m57.185s
+nfs  sec2 concurrent
+
+real	19m58.069s
+user	6m28.097s
+sys	11m29.139s
+nfs sec2 streaming 
+
+real	19m4.993s
+user	6m30.131s
+sys	10m40.228s
+das sec2
+
+real	18m3.692s
+user	6m28.476s
+sys	11m39.476s
+nfs sec2
+
+real	17m22.711s
+user	6m28.136s
+sys	9m32.286s
+nfs  sec2 concurrent
+
+real	17m31.907s
+user	6m28.123s
+sys	9m35.786s
+nfs sec2 streaming 
+
+real	17m44.287s
+user	6m28.307s
+sys	9m50.327s
+das sec2
+
+real	19m49.108s
+user	6m28.573s
+sys	13m24.603s
+nfs sec2
+
+real	16m5.330s
+user	6m28.631s
+sys	8m21.916s
+nfs  sec2 concurrent
+
+real	16m48.768s
+user	6m29.526s
+sys	9m3.566s
+nfs sec2 streaming 
+
+real	16m56.597s
+user	6m28.375s
+sys	9m2.416s
+das sec2
+
+real	18m43.655s
+user	6m27.861s
+sys	12m20.012s
+nfs sec2
+
+real	16m45.931s
+user	6m28.992s
+sys	9m0.221s
+nfs  sec2 concurrent
+
+real	19m51.410s
+user	6m29.357s
+sys	11m48.178s
+nfs sec2 streaming 
+
+real	19m12.755s
+user	6m28.264s
+sys	10m42.439s
+das sec2
+
+real	18m17.529s
+user	6m29.735s
+sys	11m52.011s
+nfs sec2
+
+real	16m23.494s
+user	6m27.619s
+sys	8m36.394s
+nfs  sec2 concurrent
+
+real	18m57.475s
+user	6m31.298s
+sys	10m14.157s
+nfs sec2 streaming 
+
+real	19m7.677s
+user	6m27.571s
+sys	10m34.215s
+das sec2
+
+real	17m52.440s
+user	6m29.810s
+sys	11m26.808s
+nfs sec2
+
+real	18m34.699s
+user	6m28.565s
+sys	10m17.824s
+nfs  sec2 concurrent
+
+real	18m47.914s
+user	6m29.394s
+sys	10m7.514s
+nfs sec2 streaming 
+
+real	17m11.090s
+user	6m28.672s
+sys	9m19.706s
+das sec2
+
+real	20m1.722s
+user	6m29.451s
+sys	13m35.390s
+nfs sec2
+
+real	18m0.457s
+user	6m30.873s
+sys	9m53.150s
+nfs  sec2 concurrent
+
+real	20m53.516s
+user	6m33.545s
+sys	11m22.014s
+nfs sec2 streaming 
+
+real	20m21.713s
+user	6m51.252s
+sys	10m58.703s
+das sec2
+
+real	19m2.704s
+user	6m29.841s
+sys	12m37.072s
+nfs sec2
+
+real	17m8.294s
+user	6m28.039s
+sys	9m21.897s
+nfs  sec2 concurrent
+
+real	18m2.976s
+user	6m29.104s
+sys	10m1.232s
+nfs sec2 streaming 
+
+real	19m36.831s
+user	6m29.853s
+sys	10m54.674s
+das sec2
+
+real	18m51.769s
+user	6m29.620s
+sys	12m26.139s
+nfs sec2
+
+real	17m35.018s
+user	6m27.759s
+sys	9m39.656s
+nfs  sec2 concurrent
+
+real	16m54.325s
+user	6m28.977s
+sys	9m4.635s
+nfs sec2 streaming 
+
+real	19m50.457s
+user	6m29.129s
+sys	10m56.686s
+das sec2
+
+real	20m18.484s
+user	6m30.409s
+sys	13m51.867s
+nfs sec2
+
+real	18m13.297s
+user	6m28.630s
+sys	10m12.445s
+nfs  sec2 concurrent
+
+real	17m20.846s
+user	6m28.270s
+sys	9m35.660s
+nfs sec2 streaming 
+
+real	16m57.110s
+user	6m28.695s
+sys	9m3.022s
+das sec2
+
+real	18m17.002s
+user	6m27.475s
+sys	11m53.655s
+nfs sec2
+
+real	19m33.667s
+user	6m29.866s
+sys	10m52.651s
+nfs  sec2 concurrent
+
+real	19m43.708s
+user	6m31.154s
+sys	11m1.113s
+nfs sec2 streaming 
+
+real	16m57.420s
+user	6m30.296s
+sys	9m4.891s
+das sec2
+
+real	19m15.742s
+user	6m29.585s
+sys	12m50.327s
+nfs sec2
+
+real	18m20.635s
+user	6m28.538s
+sys	9m55.855s
+nfs  sec2 concurrent
+
+real	17m42.835s
+user	6m41.899s
+sys	9m38.596s
+nfs sec2 streaming 
+
+real	18m39.741s
+user	6m30.274s
+sys	9m52.703s
+das sec2
+
+real	18m18.232s
+user	6m29.532s
+sys	11m52.983s
+nfs sec2
+
+real	19m2.738s
+user	6m29.038s
+sys	10m51.570s
+nfs  sec2 concurrent
+
+real	18m7.369s
+user	6m29.178s
+sys	9m58.238s
+nfs sec2 streaming 
+
+real	19m24.874s
+user	6m28.347s
+sys	10m47.981s
+das sec2
+
+real	18m10.947s
+user	6m30.029s
+sys	11m45.240s
+nfs sec2
+
+real	17m53.375s
+user	6m27.874s
+sys	9m57.515s
+nfs  sec2 concurrent
+
+real	18m33.241s
+user	6m29.059s
+sys	10m21.506s
+nfs sec2 streaming 
+
+real	19m36.614s
+user	6m29.364s
+sys	11m10.196s
+das sec2
+
+real	18m37.984s
+user	6m29.041s
+sys	12m13.164s
+nfs sec2
+
+real	18m0.665s
+user	6m29.011s
+sys	10m1.392s
+nfs  sec2 concurrent
+
+real	20m21.939s
+user	6m31.165s
+sys	11m10.896s
+nfs sec2 streaming 
+
+real	17m6.109s
+user	6m30.024s
+sys	9m9.166s
+das sec2
+
+real	18m28.297s
+user	6m29.148s
+sys	12m3.416s
+nfs sec2
+
+real	16m51.053s
+user	6m29.722s
+sys	9m1.667s
+nfs  sec2 concurrent
+
+real	18m53.260s
+user	6m28.499s
+sys	10m33.877s
+nfs sec2 streaming 
+
+real	17m7.879s
+user	6m29.743s
+sys	9m15.055s
+das sec2
+
+real	19m55.496s
+user	6m27.991s
+sys	13m31.624s
+nfs sec2
+
+real	18m28.117s
+user	6m29.504s
+sys	10m19.578s
+nfs  sec2 concurrent
+
+real	18m57.704s
+user	6m29.717s
+sys	10m7.300s
+nfs sec2 streaming 
+
+real	18m5.571s
+user	6m29.802s
+sys	10m2.922s
+das sec2
+
+real	18m44.756s
+user	6m29.414s
+sys	12m19.514s
+nfs sec2
+
+real	18m21.415s
+user	6m28.597s
+sys	9m55.831s
+nfs  sec2 concurrent
+
+real	19m25.217s
+user	6m28.867s
+sys	10m59.705s
+nfs sec2 streaming 
+
+real	16m51.184s
+user	6m29.078s
+sys	9m0.787s
+das sec2
+
+real	18m51.823s
+user	6m45.055s
+sys	12m11.030s
+nfs sec2
+
+real	17m15.700s
+user	6m27.926s
+sys	9m30.495s
+nfs  sec2 concurrent
+
+real	18m21.870s
+user	6m29.357s
+sys	10m2.870s
+nfs sec2 streaming 
+
+real	17m1.465s
+user	6m30.152s
+sys	9m7.389s
+das sec2
+
+real	18m22.113s
+user	6m31.378s
+sys	11m54.535s
+nfs sec2
+
+real	16m20.743s
+user	6m31.327s
+sys	8m34.243s
+nfs  sec2 concurrent
+
+real	17m55.805s
+user	6m28.594s
+sys	9m55.747s
+nfs sec2 streaming 
+
+real	16m55.783s
+user	6m31.217s
+sys	9m2.864s
+das sec2
+
+real	18m48.599s
+user	6m29.540s
+sys	12m23.065s
+nfs sec2
+
+real	16m41.289s
+user	6m29.400s
+sys	8m53.739s
+nfs  sec2 concurrent
+
+real	18m0.888s
+user	6m30.406s
+sys	10m4.310s
+nfs sec2 streaming 
+^C^Z
+[4]+  Stopped                 bash allrun.sh
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# 

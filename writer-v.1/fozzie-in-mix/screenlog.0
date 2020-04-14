@@ -1,0 +1,161 @@
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# bash s[Kallrun.sh [K[K[K[K[K[K[K[K[K[Kmounter
+mounter: line 1: !#/bin/bash: No such file or directory
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# mount | grep nfs
+[01;31m[Knfs[m[Kd on /proc/fs/[01;31m[Knfs[m[Kd type [01;31m[Knfs[m[Kd (rw,relatime)
+sunrpc on /var/lib/[01;31m[Knfs[m[K/rpc_pipefs type rpc_pipefs (rw,relatime)
+172.16.1.1:/ifs/data on /gonzo type [01;31m[Knfs[m[K4 (rw,relatime,vers=4.0,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=172.16.0.62,local_lock=none,addr=172.16.1.1)
+172.16.141.252:/ifs/data on /gonzo type [01;31m[Knfs[m[K (rw,relatime,vers=3,rsize=131072,wsize=524288,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=172.16.141.252,mountvers=3,mountport=300,mountproto=udp,local_lock=none,addr=172.16.141.252)
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# umount /gonzo
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# vi /etc/fstab[K[K[K[K[K[K[K[K[K[K[K[K[Kmounter
+bash: mounter: command not found
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# vi moou[K[Knt[K[Kunter 
+[?1049h[?1h=[1;37r[34l[34h[?25h[23m[24m[0m[H[J[?25l[37;1H"mounter" 6L, 91C[1;1H!#/bin/bash[4;3Hmount 172.16.1.1:/ifs/data /gonzo
+  mount 172.16.141.252:/ifs/data /gonzo
+
+[1m[34m~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [24;1H~                                                                               [25;1H~                                                                               [26;1H~                                                                               [27;1H~                                                                               [28;1H~                                                                               [29;1H~                                                                               [30;1H~                                                                               [31;1H~                                                                               [32;1H~                                                                               [33;1H~                                                                               [34;1H~                                                                               [35;1H~                                                                               [36;1H~                                                                               [1;1H[34h[?25h
+
+
+
+
+[5;1H[0m  mount 172.16.141.252:/ifs/data /[?25lonzo[5;39H[K[5;35H[34h[?25h[?25lnzo[5;38H[K[5;35H[34h[?25h[?25lzo[5;37H[K[5;35H[34h[?25h[?25lo[5;36H[K[5;35H[34h[?25h[?25l[5;35H[K[5;34H[34h[?25h[?25l[37;1H[1m-- INSERT --[0m[37;13H[K[5;34H[34h[?25h/[?25lg[34h[?25h[?25l[5;35H[K[5;35H[34h[?25h[?25lf[34h[?25h[?25lo[34h[?25h[?25lz[34h[?25h[?25lz[34h[?25h[?25li[34h[?25h[?25le[34h[?25h[37;1H[K[?25l[5;40H[34h[?25h[?25l[37;1H:[34h[?25hwq[?25l"mounter" 6L, 92C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# vi mounter [4Pmounterumount /gonzomount | grep nfs[4Pbash mounter
+mounter: line 1: !#/bin/bash: No such file or directory
+mount.nfs: /gonzo is busy or already mounted
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# mount
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+devtmpfs on /dev type devtmpfs (rw,nosuid,size=395493488k,nr_inodes=98873372,mode=755)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,mode=755)
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/usr/lib/systemd/systemd-cgroups-agent,name=systemd)
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_prio,net_cls)
+cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpuacct,cpu)
+cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)
+cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb)
+cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
+configfs on /sys/kernel/config type configfs (rw,relatime)
+/dev/mapper/cl-root on / type xfs (rw,relatime,attr2,inode64,noquota)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=33,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=57223)
+mqueue on /dev/mqueue type mqueue (rw,relatime)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime)
+nfsd on /proc/fs/nfsd type nfsd (rw,relatime)
+/dev/sda1 on /opt/big type ext2 (rw,relatime,stripe=256)
+/dev/sdc1 on /boot type xfs (rw,relatime,attr2,inode64,noquota)
+/dev/mapper/cl-home on /home type xfs (rw,relatime,attr2,inode64,noquota)
+sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw,relatime)
+tmpfs on /run/user/0 type tmpfs (rw,nosuid,nodev,relatime,size=79103084k,mode=700)
+172.16.1.1:/ifs/data on /gonzo type nfs4 (rw,relatime,vers=4.0,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=172.16.0.62,local_lock=none,addr=172.16.1.1)
+172.16.141.252:/ifs/data on /fozzie type nfs (rw,relatime,vers=3,rsize=131072,wsize=524288,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=172.16.141.252,mountvers=3,mountport=300,mountproto=udp,local_lock=none,addr=172.16.141.252)
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# bash allrun.sh 
+das sec2
+
+real	18m31.667s
+user	6m0.115s
+sys	12m10.314s
+nfs sec2
+
+real	13m59.741s
+user	5m58.794s
+sys	6m23.298s
+nfs  sec2 concurrent
+
+real	15m36.708s
+user	6m2.033s
+sys	7m18.420s
+nfs sec2 streaming 
+
+real	14m26.344s
+user	5m58.269s
+sys	6m43.814s
+nfs fozzie  sec2 concurrent
+python: can't open file 'nfs_writer_conncurrent_h400.py': [Errno 2] No such file or directory
+
+real	0m0.026s
+user	0m0.017s
+sys	0m0.009s
+nfs fozzie sec2 streaming 
+
+real	17m6.136s
+user	6m2.362s
+sys	6m48.623s
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# [K[root@groot-3 hdf5]# [K[root@groot-3 hdf5]# ls
+\  allrun.sh  [0m[01;34mcore[0m  [01;34mf800-only[0m  [01;32mmounter[0m  nfs_writer_conncurrent.py  nfs_writer_conn_h400.py  nfs_writer.py  nfs_writer_streaming_h400.py  nfs_writer_streaming.py  screenlog.0  writer.py
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# vi allrun.sh 
+[?1049h[?1h=[1;41r[34l[34h[?25h[23m[24m[0m[H[J[?25l[41;1H"allrun.sh" 29L, 726C[1;1H#!/bin/bash
+
+
+echo "das sec2"
+ time python writer.py ;
+rm -f /opt/big/*data.h5;
+#echo "das core"
+# time python writer_core.py;
+rm -f /opt/big/*data* ;
+echo "nfs sec2"
+ time python nfs_writer.py;
+# rm -f /gonzo/hdf5/data* ;
+#echo "nfs core"
+# time python nfs_writer_core.py ;
+# rm -f /gonzo/hdf5/data*;
+echo "nfs  sec2 concurrent"
+ time python nfs_writer_conncurrent.py;
+ rm -f /gonzo/hdf5/concurrent/*;
+echo "nfs sec2 streaming "
+ time python nfs_writer_streaming.py ;
+ rm -f /gonzo/hdf5/streaming/*
+
+echo "nfs fozzie  sec2 concurrent"
+ time python nfs_writer_conncurrent_h400.py;
+ rm -f /fozzie/hdf5/concurrent/*;
+echo "nfs fozzie sec2 streaming "
+ time python nfs_writer_streaming_h400.py ;
+ rm -f /fozzie/hdf5/streaming/*
+
+[1m[34m~                                                                                                                                                                                        [31;1H~                                                                                                                                                                                        [32;1H~                                                                                                                                                                                        [33;1H~                                                                                                                                                                                        [34;1H~                                                                                                                                                                                        [35;1H~                                                                                                                                                                                        [36;1H~                                                                                                                                                                                        [37;1H~                                                                                                                                                                                        [38;1H~                                                                                                                                                                                        [39;1H~                                                                                                                                                                                        [40;1H~                                                                                                                                                                                        [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[0m time python n[?25lfs_writer_conncurrent_h400.py;[24;44H[K[24;14H[34h[?25h[?25ls_writer_conncurrent_h400.py;[24;43H[K[24;14H[34h[?25h[?25l_writer_conncurrent_h400.py;[24;42H[K[24;14H[34h[?25h[?25lwriter_conncurrent_h400.py;[24;41H[K[24;14H[34h[?25h[?25lriter_conncurrent_h400.py;[24;40H[K[24;14H[34h[?25h[?25liter_conncurrent_h400.py;[24;39H[K[24;14H[34h[?25h[?25lter_conncurrent_h400.py;[24;38H[K[24;14H[34h[?25h[?25ler_conncurrent_h400.py;[24;37H[K[24;14H[34h[?25h[?25lr_conncurrent_h400.py;[24;36H[K[24;14H[34h[?25h[?25l_conncurrent_h400.py;[24;35H[K[24;14H[34h[?25h[?25lconncurrent_h400.py;[24;34H[K[24;14H[34h[?25h[?25lonncurrent_h400.py;[24;33H[K[24;14H[34h[?25h[?25lnncurrent_h400.py;[24;32H[K[24;14H[34h[?25h[?25lncurrent_h400.py;[24;31H[K[24;14H[34h[?25h[?25lcurrent_h400.py;[24;30H[K[24;14H[34h[?25h[?25lurrent_h400.py;[24;29H[K[24;14H[34h[?25h[?25lrrent_h400.py;[24;28H[K[24;14H[34h[?25h[?25lrent_h400.py;[24;27H[K[24;14H[34h[?25h[?25lent_h400.py;[24;26H[K[24;14H[34h[?25h[?25lnt_h400.py;[24;25H[K[24;14H[34h[?25h[?25lt_h400.py;[24;24H[K[24;14H[34h[?25h[?25l_h400.py;[24;23H[K[24;14H[34h[?25h[?25lh400.py;[24;22H[K[24;14H[34h[?25h[?25l400.py;[24;21H[K[24;14H[34h[?25h[?25l00.py;[24;20H[K[24;14H[34h[?25h[?25l0.py;[24;19H[K[24;14H[34h[?25h[?25l.py;[24;18H[K[24;14H[34h[?25h[?25lpy;[24;17H[K[24;14H[34h[?25h[?25ly;[24;16H[K[24;14H[34h[?25h[?25l;[24;15H[K[24;14H[34h[?25h[?25l[41;1H[1m-- INSERT --[0m[41;13H[K[24;14H[34h[?25h[?25lnfs_writer_conn_h400.py;[34h[?25h[41;1H[K[24;36H[?25l[34h[?25h[?25l[41;1H:[34h[?25hwq[?25l"allrun.sh" 29L, 719C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# ls -l
+total 52
+-rw-r--r-- 1 root root   240 Mar  6 10:53 \
+-rw-r--r-- 1 root root   719 Mar 12 06:14 allrun.sh
+drwxr-xr-x 2 root root    54 Mar  9 10:07 [0m[01;34mcore[0m
+drwxr-xr-x 4 root root   287 Mar 11 10:55 [01;34mf800-only[0m
+-rwxr-xr-x 1 root root    92 Mar 11 11:23 [01;32mmounter[0m
+-rw-r--r-- 1 root root   339 Mar  9 10:06 nfs_writer_conncurrent.py
+-rw-r--r-- 1 root root   340 Mar 11 10:52 nfs_writer_conn_h400.py
+-rw-r--r-- 1 root root   330 Mar  9 10:05 nfs_writer.py
+-rw-r--r-- 1 root root   339 Mar 11 10:53 nfs_writer_streaming_h400.py
+-rw-r--r-- 1 root root   338 Mar  9 11:47 nfs_writer_streaming.py
+-rw-r--r-- 1 root root 13775 Mar 12 06:14 screenlog.0
+-rw-r--r-- 1 root root   326 Mar  9 10:03 writer.py
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# cp screenlog.0 [K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmkdir 

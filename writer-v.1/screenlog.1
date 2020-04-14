@@ -1,0 +1,72 @@
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# k[Kls
+\          [0m[01;34mfozzie-in-mix[0m              nfs_writer.py                 screenlog.1
+allrun.sh  [01;32mmounter[0m                    nfs_writer_streaming_h400.py  writer.py
+[01;34mcore[0m       nfs_writer_conncurrent.py  nfs_writer_streaming.py
+[01;34mf800-only[0m  nfs_writer_conn_h400.py    screenlog.0
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# more allrun.sh 
+#!/bin/bash
+
+
+echo "das sec2"
+ time python writer.py ;
+rm -f /opt/big/*data.h5;
+#echo "das core"
+# time python writer_core.py;
+rm -f /opt/big/*data* ;
+echo "nfs sec2"
+ time python nfs_writer.py;
+# rm -f /gonzo/hdf5/data* ;
+#echo "nfs core"
+# time python nfs_writer_core.py ;
+# rm -f /gonzo/hdf5/data*;
+echo "nfs  sec2 concurrent"
+ time python nfs_writer_conncurrent.py;
+ rm -f /gonzo/hdf5/concurrent/*;
+echo "nfs sec2 streaming "
+ time python nfs_writer_streaming.py ;
+ rm -f /gonzo/hdf5/streaming/*
+
+echo "nfs fozzie  sec2 concurrent"
+ time python nfs_writer_conn_h400.py;
+ rm -f /fozzie/hdf5/concurrent/*;
+echo "nfs fozzie sec2 streaming "
+ time python nfs_writer_streaming_h400.py ;
+ rm -f /fozzie/hdf5/streaming/*
+
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# more pyt[K[K[Knfs_writer.py 
+import numpy as np
+import h5py
+import time
+
+
+d1 = np.random.random(size = (100000,250000))
+d2 = np.random.random(size = (100000,250000))
+
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+
+hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+
+hf.create_dataset('dataset_1', data=d1)
+hf.create_dataset('dataset_2', data=d2)
+
+hf.close()
+
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# more nfs_writer_connnc[K[Kcurrent.py 
+import numpy as np
+import h5py
+import time
+
+
+d1 = np.random.random(size = (100000,250000))
+d2 = np.random.random(size = (100000,250000))
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+hf = h5py.File('/gonzo/hdf5/concurrent/'+timestr+'-data.h5', 'w')
+
+hf.create_dataset('dataset_1', data=d1)
+hf.create_dataset('dataset_2', data=d2)
+
+hf.close()
+
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# 
