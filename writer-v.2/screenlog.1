@@ -1,0 +1,120 @@
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ping 172.16.208.201
+PING 172.16.208.201 (172.16.208.201) 56(84) bytes of data.
+64 bytes from 172.16.208.201: icmp_seq=1 ttl=64 time=0.272 ms
+64 bytes from 172.16.208.201: icmp_seq=2 ttl=64 time=0.077 ms
+^C
+--- 172.16.208.201 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1000ms
+rtt min/avg/max/mdev = 0.077/0.174/0.272/0.098 ms
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# mkdir /scook[Kter3
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# more /etc/fstab
+
+#
+# /etc/fstab
+# Created by anaconda on Thu Feb 20 21:51:22 2020
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/cl-root     /                       xfs     defaults        0 0
+UUID=681aa7fc-c964-49b6-851d-76580cfe9c4d /boot                   xfs     defaults        0 0
+/dev/mapper/cl-home     /home                   xfs     defaults        0 0
+/dev/mapper/cl-swap     swap                    swap    defaults        0 0
+UUID=5f70edc8-8e33-4cc8-b846-f1a10386c514 /opt/big ext2 defaults        0 0
+
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# i [K[Kmou[K[K[Kmount
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+devtmpfs on /dev type devtmpfs (rw,nosuid,size=395493488k,nr_inodes=98873372,mode=755)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,mode=755)
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/usr/lib/systemd/systemd-cgroups-agent,name=systemd)
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_prio,net_cls)
+cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpuacct,cpu)
+cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)
+cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb)
+cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
+configfs on /sys/kernel/config type configfs (rw,relatime)
+/dev/mapper/cl-root on / type xfs (rw,relatime,attr2,inode64,noquota)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=33,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=57223)
+mqueue on /dev/mqueue type mqueue (rw,relatime)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime)
+nfsd on /proc/fs/nfsd type nfsd (rw,relatime)
+/dev/sda1 on /opt/big type ext2 (rw,relatime,stripe=256)
+/dev/sdc1 on /boot type xfs (rw,relatime,attr2,inode64,noquota)
+/dev/mapper/cl-home on /home type xfs (rw,relatime,attr2,inode64,noquota)
+sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw,relatime)
+tmpfs on /run/user/0 type tmpfs (rw,nosuid,nodev,relatime,size=79103084k,mode=700)
+172.16.1.1:/ifs/data on /gonzo type nfs4 (rw,relatime,vers=4.0,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=172.16.0.62,local_lock=none,addr=172.16.1.1)
+172.16.141.252:/ifs/data on /fozzie type nfs (rw,relatime,vers=3,rsize=131072,wsize=524288,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=172.16.141.252,mountvers=3,mountport=300,mountproto=udp,local_lock=none,addr=172.16.141.252)
+/dev/mapper/cl-root on /var/lib/docker/containers type xfs (rw,relatime,attr2,inode64,noquota)
+/dev/mapper/cl-root on /var/lib/docker/overlay2 type xfs (rw,relatime,attr2,inode64,noquota)
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# cd ..
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# ls
+screenlog.0  screenlog.1  [0m[01;34mwriter-v.1[0m  [01;34mwriter-v.2[0m
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# cd writer-v.2[K1
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# ls
+\          [0m[01;34mcore[0m       [01;34mfozzie-in-mix[0m  nfs_writer_conncurrent.py  nfs_writer.py                 nfs_writer_streaming.py  screenlog.1
+allrun.sh  [01;34mf800-only[0m  [01;32mmounter[0m        nfs_writer_conn_h400.py    nfs_writer_streaming_h400.py  screenlog.0              writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# vi mounter 
+[?1049h[?1h=[1;43r[34l[34h[?25h[23m[24m[0m[H[J[?25l[43;1H"mounter" 6L, 92C[1;1H!#/bin/bash[4;3Hmount 172.16.1.1:/ifs/data /gonzo
+  mount 172.16.141.252:/ifs/data /fozzie
+
+[1m[34m~                                                                                                                                                            [8;1H~                                                                                                                                                            [9;1H~                                                                                                                                                            [10;1H~                                                                                                                                                            [11;1H~                                                                                                                                                            [12;1H~                                                                                                                                                            [13;1H~                                                                                                                                                            [14;1H~                                                                                                                                                            [15;1H~                                                                                                                                                            [16;1H~                                                                                                                                                            [17;1H~                                                                                                                                                            [18;1H~                                                                                                                                                            [19;1H~                                                                                                                                                            [20;1H~                                                                                                                                                            [21;1H~                                                                                                                                                            [22;1H~                                                                                                                                                            [23;1H~                                                                                                                                                            [24;1H~                                                                                                                                                            [25;1H~                                                                                                                                                            [26;1H~                                                                                                                                                            [27;1H~                                                                                                                                                            [28;1H~                                                                                                                                                            [29;1H~                                                                                                                                                            [30;1H~                                                                                                                                                            [31;1H~                                                                                                                                                            [32;1H~                                                                                                                                                            [33;1H~                                                                                                                                                            [34;1H~                                                                                                                                                            [35;1H~                                                                                                                                                            [36;1H~                                                                                                                                                            [37;1H~                                                                                                                                                            [38;1H~                                                                                                                                                            [39;1H~                                                                                                                                                            [40;1H~                                                                                                                                                            [41;1H~                                                                                                                                                            [42;1H~                                                                                                                                                            [1;1H[34h[?25h
+
+
+
+
+[5;1H[0m  [?25l[43;1H[1m-- INSERT --[0m[43;13H[K[6;42r[6;1H[L[1;43r[6;1H[34h[?25h[?25l[8C[34h[?25h[?25l[34h[?25h[?25l [34h[?25h[?25l [34h[?25h[?25lm[34h[?25h[?25lo[34h[?25h[?25lu[34h[?25h[?25ln[34h[?25h[?25lt[34h[?25h[?25l [34h[?25h[?25l1[34h[?25h[?25l7[34h[?25h[?25l2[34h[?25h[?25l1[34h[?25h[?25l6[34h[?25h[?25l[6;13H[K[6;13H[34h[?25h[?25l[6;12H[K[6;12H[34h[?25h[?25l.[34h[?25h[?25l1[34h[?25h[?25l6[34h[?25h[?25l.[34h[?25h[?25l2[34h[?25h[?25l0[34h[?25h[?25l8[34h[?25h[?25l.[34h[?25h[?25l2[34h[?25h[?25l0[34h[?25h[?25l1[34h[?25h[?25l:[34h[?25h[?25l/[34h[?25h[?25li[34h[?25h[?25lf[34h[?25h[?25ls[34h[?25h[?25l/[34h[?25h[?25ld[34h[?25h[?25la[34h[?25h[?25lt[34h[?25h[?25la[34h[?25h[?25l/[34h[?25h[?25l[6;33H[K[6;33H[34h[?25h[?25l [34h[?25h[?25l/[34h[?25h[?25ls[34h[?25h[?25lc[34h[?25h[?25lo[34h[?25h[?25lo[34h[?25h[?25lt[34h[?25h[?25le[34h[?25h[?25lr[34h[?25h[?25l3[34h[?25h[43;1H[K[6;42H[?25l[34h[?25h[?25l[43;1H:[34h[?25hwq[?25l"mounter" 7L, 135C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# mount 172.16.208.201:/ifs/data /scooter3
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# mdir[K[K[Kkdir /scooter/[K3/hdf5
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# mkdir /scooter3/hdf5/streaming
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# mkdir /scooter3/hdf5/streaming[K[K[K[K[K[K[K[K[Kcon[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd ..
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# cd writer-v.v[K2
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls
+DAS_df_pandas_writer_h5.py  data-test-2.h5  data-test.h5  NFS_df_pandas_writer_h5.py  nfs_writer.py  screenlog.0  screenlog.1  simple_writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# cp nfs_writer.py [K[K[K[K[K[K[K[K[K[Kd[K[K[K[K[KNFS_df_pandas_writer_h5.py NFS_socoo[K[K[K[Kc[K[Kh500_df_pandas_writer_h5.py
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_h500_df_pandas_writer_h5.py 
+[?1049h[?1h=[1;43r[34l[34h[?25h[23m[24m[0m[H[J[?25l[43;1H"NFS_h500_df_pandas_writer_h5.py" 16L, 282C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+df = DataFrame(np.random.randn(100000,250000))
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/gonzo/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                                                                                                            [18;1H~                                                                                                                                                            [19;1H~                                                                                                                                                            [20;1H~                                                                                                                                                            [21;1H~                                                                                                                                                            [22;1H~                                                                                                                                                            [23;1H~                                                                                                                                                            [24;1H~                                                                                                                                                            [25;1H~                                                                                                                                                            [26;1H~                                                                                                                                                            [27;1H~                                                                                                                                                            [28;1H~                                                                                                                                                            [29;1H~                                                                                                                                                            [30;1H~                                                                                                                                                            [31;1H~                                                                                                                                                            [32;1H~                                                                                                                                                            [33;1H~                                                                                                                                                            [34;1H~                                                                                                                                                            [35;1H~                                                                                                                                                            [36;1H~                                                                                                                                                            [37;1H~                                                                                                                                                            [38;1H~                                                                                                                                                            [39;1H~                                                                                                                                                            [40;1H~                                                                                                                                                            [41;1H~                                                                                                                                                            [42;1H~                                                                                                                                                            [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[15;1H[0mdf.to_hdf('/[?25lonzo/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;63H[K[15;13H[34h[?25h[?25lnzo/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;62H[K[15;13H[34h[?25h[?25lzo/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;61H[K[15;13H[34h[?25h[?25lo/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;60H[K[15;13H[34h[?25h[?25l/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;59H[K[15;13H[34h[?25h[?25l[43;1H[1m-- INSERT --[0m[43;13H[K[15;13H[34h[?25h[?25ls/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;14H[34h[?25h[?25lc/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;15H[34h[?25h[?25lo/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;16H[34h[?25h[?25lo/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;17H[34h[?25h[?25lt/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;18H[34h[?25h[?25le/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;19H[34h[?25h[?25lr/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;20H[34h[?25h[?25l3/hdf5/'+timestr+'-data.h5',key='df', mode='w')[15;21H[34h[?25h[43;1H[K[15;20H[?25l[34h[?25h[?25l[43;1H:[34h[?25hwq[?25l"NFS_h500_df_pandas_writer_h5.py" 16L, 285C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# [K[root@groot-3 writer-v.2]# vi NFS_h500_df_pandas_writer_h5.py 

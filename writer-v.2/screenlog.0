@@ -1,0 +1,873 @@
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# python DAS_df_pandas_writer_h5.py ; rm *.h5; python NFS_df_pandas_writer_h5.py [C[1@t[1@i[1@m[1@e[1@t[1@i[1@m[1@e[1@ 
+Traceback (most recent call last):
+  File "DAS_df_pandas_writer_h5.py", line 14, in <module>
+    df.to_hdf('data-test-3.h5', key='df', mode='w')
+  File "/usr/lib64/python2.7/site-packages/pandas/core/generic.py", line 939, in to_hdf
+    return pytables.to_hdf(path_or_buf, key, self, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 257, in to_hdf
+    f(store)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 252, in <lambda>
+    f = lambda store: store.put(key, value, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 814, in put
+    self._write_to_group(key, value, append=append, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 1252, in _write_to_group
+    s.write(obj=value, append=append, complib=complib, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2789, in write
+    self.write_array('block%d_values' % i, blk.values, items=blk_items)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2570, in write_array
+    self._handle.create_array(self.group, key, value)
+  File "/usr/lib64/python2.7/site-packages/tables/file.py", line 1152, in create_array
+    obj=obj, title=title, byteorder=byteorder)
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 187, in __init__
+    byteorder, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/leaf.py", line 262, in __init__
+    super(Leaf, self).__init__(parentnode, name, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/node.py", line 270, in __init__
+    self._v_objectid = self._g_create()
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 219, in _g_create
+    nparr, self._v_new_title, self.atom)
+  File "hdf5extension.pyx", line 1259, in tables.hdf5extension.Array._create_array (tables/hdf5extension.c:12016)
+tables.exceptions.HDF5ExtError: Problems creating the Array.
+
+real	23m41.952s
+user	17m32.892s
+sys	1m14.181s
+rm: remove regular file ‘data-test-2.h5’? y
+rm: remove regular file ‘data-test-3.h5’? y
+rm: remove regular file ‘data-test.h5’? y
+^Z
+[1]+  Stopped                 python NFS_df_pandas_writer_h5.py
+
+real	0m23.438s
+user	0m0.000s
+sys	0m0.001s
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# time python DAS_df_pandas_writer_h5.py ; rm *.h5;time python NFS_df_pandas_writer_h5.py [1@-[1@f[1@ 
+Traceback (most recent call last):
+  File "DAS_df_pandas_writer_h5.py", line 14, in <module>
+    df.to_hdf('data-test-3.h5', key='df', mode='w')
+  File "/usr/lib64/python2.7/site-packages/pandas/core/generic.py", line 939, in to_hdf
+    return pytables.to_hdf(path_or_buf, key, self, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 257, in to_hdf
+    f(store)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 252, in <lambda>
+    f = lambda store: store.put(key, value, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 814, in put
+    self._write_to_group(key, value, append=append, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 1252, in _write_to_group
+    s.write(obj=value, append=append, complib=complib, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2789, in write
+    self.write_array('block%d_values' % i, blk.values, items=blk_items)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2570, in write_array
+    self._handle.create_array(self.group, key, value)
+  File "/usr/lib64/python2.7/site-packages/tables/file.py", line 1152, in create_array
+    obj=obj, title=title, byteorder=byteorder)
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 187, in __init__
+    byteorder, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/leaf.py", line 262, in __init__
+    super(Leaf, self).__init__(parentnode, name, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/node.py", line 270, in __init__
+    self._v_objectid = self._g_create()
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 219, in _g_create
+    nparr, self._v_new_title, self.atom)
+  File "hdf5extension.pyx", line 1259, in tables.hdf5extension.Array._create_array (tables/hdf5extension.c:12016)
+tables.exceptions.HDF5ExtError: Problems creating the Array.
+
+real	24m4.158s
+user	17m25.356s
+sys	2m0.552s
+Traceback (most recent call last):
+  File "NFS_df_pandas_writer_h5.py", line 15, in <module>
+    df.to_hdf('/gonzo/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+NameError: name 'timestr' is not defined
+
+real	17m2.452s
+user	16m22.203s
+sys	0m37.811s
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls
+DAS_df_pandas_writer_h5.py       nfs_writer.py  simple_writer.py
+NFS_df_pandas_writer_h5.py       screenlog.0
+NFS_h500_df_pandas_writer_h5.py  screenlog.1
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# morenf[K[K nfs_writer.py 
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+d1 = np.random.random(size = (100000,250000))
+d2 = np.random.random(size = (100000,250000))
+
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+
+#hf = h5py.File('/gonzo/hdf5/'+timestr+'-data.h5', 'w')
+hf = HDFStore('/gonzo/hdf5/'+timestr+'-data.h5')
+
+df = DataFrame(np.random.randn(5,3), columns['A','B','C'])
+
+store.put('d1',df,format='table', data_columns=True)
+
+hf.create_dataset('dataset_1', data=d1)
+hf.create_dataset('dataset_2', data=d2)
+
+hf.close()
+
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# more nfs_writer.py ls[Ktime python DAS_df_pandas_writer_h5.py ; rm -f *.h5;tiime python NFS_df_pandas_writer_h5.py ^C
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi DAS_df_pandas_writer_h5.py 
+[?1049h[?1h=[1;35r[34l[34h[?25h[23m[24m[0m[H[J[?25l[35;1H"DAS_df_pandas_writer_h5.py" 16L, 282C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+df = DataFrame(np.random.randn(100000,250000))
+
+df.to_hdf('data-test-3.h5', key='df', mode='w')
+#df.to_hdf('/gonzo/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [24;1H~                                                                               [25;1H~                                                                               [26;1H~                                                                               [27;1H~                                                                               [28;1H~                                                                               [29;1H~                                                                               [30;1H~                                                                               [31;1H~                                                                               [32;1H~                                                                               [33;1H~                                                                               [34;1H~                                                                               [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+[?25l[0m[35;1H[1m-- INSERT --[0m[35;13H[K[12;34r[12;1H[L[1;35r[12;1H[34h[?25h[?25l[13;34r[13;1H[2L[1;35r[13;1Htimestr = time.strftime("%Y%m%d-%H%M%S")
+[34h[?25h[35;1H[K[14;1H[?25l[34h[?25h[?25l[35;1H:[34h[?25hwq[?25l"DAS_df_pandas_writer_h5.py" 19L, 325C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_df_pandas_writer_h5.py 
+[?1049h[?1h=[1;35r[34l[34h[?25h[23m[24m[0m[H[J[?25l[35;1H"NFS_df_pandas_writer_h5.py" 16L, 282C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+df = DataFrame(np.random.randn(100000,250000))
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/gonzo/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [24;1H~                                                                               [25;1H~                                                                               [26;1H~                                                                               [27;1H~                                                                               [28;1H~                                                                               [29;1H~                                                                               [30;1H~                                                                               [31;1H~                                                                               [32;1H~                                                                               [33;1H~                                                                               [34;1H~                                                                               [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+[11;1H[?25l[0m[35;1H[1m-- INSERT --[0m[35;13H[K[12;34r[12;1H[L[1;35r[12;1H[34h[?25h[?25l[13;34r[13;1H[2L[1;35r[13;1Htimestr = time.strftime("%Y%m%d-%H%M%S")
+[34h[?25h[35;1H[K[14;1H[?25l[34h[?25h[?25l[35;1H:[34h[?25hwq[?25l"NFS_df_pandas_writer_h5.py" 19L, 325C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_df_pandas_writer_h5.py [C[1@_[1@g[1@r[1P[1P[1@s[1P^C
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls
+DAS_df_pandas_writer_h5.py       nfs_writer.py  simple_writer.py
+NFS_df_pandas_writer_h5.py       screenlog.0
+NFS_h500_df_pandas_writer_h5.py  screenlog.1
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_h500_df_pandas_writer_h5.py 
+[?1049h[?1h=[1;35r[34l[34h[?25h[23m[24m[0m[H[J[?25l[35;1H"NFS_h500_df_pandas_writer_h5.py" 16L, 285C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+df = DataFrame(np.random.randn(100000,250000))
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/scooter3/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [24;1H~                                                                               [25;1H~                                                                               [26;1H~                                                                               [27;1H~                                                                               [28;1H~                                                                               [29;1H~                                                                               [30;1H~                                                                               [31;1H~                                                                               [32;1H~                                                                               [33;1H~                                                                               [34;1H~                                                                               [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+[14;1H[13;1H[12;1H[?25l[0m[35;1H[1m-- INSERT --[0m[35;13H[K[13;34r[13;1H[L[1;35r[13;1H[34h[?25h[?25l[14;34r[14;1H[2L[1;35r[14;1Htimestr = time.strftime("%Y%m%d-%H%M%S")
+[34h[?25h[35;1H[K[15;1H[?25l[34h[?25h[?25l[35;1H:[34h[?25hwq[?25l"NFS_h500_df_pandas_writer_h5.py" 19L, 328C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kvi NFS_df_pandas_writer_h5.py DA[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[11Pmore nfs_writer[C[C[C[Cls[Ktime python DAS_df_pandas_writer_h5.py ; rm -f *.h5;tiime python NFS_df_pandas_writer_h5.py M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crtime python DAS_df_pandas_writer_h5.py ; rm -f *.h5;t[1@iM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;[1@tM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ctime python DAS_df_pandas_writer_h5.py ; rm -f *.h5;t[1PM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmtime python DAS_df_pandas_writer_h5.py ; rm -f *.h5;[1@tM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python DAS_df_pandas_writer_h5.py ; rm -f *.h5[1@;M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-time python DAS_df_pandas_writer_h5.py ; rm -f *.h[1@5M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cftime python DAS_df_pandas_writer_h5.py ; rm -f *.[1@hM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python DAS_df_pandas_writer_h5.py ; rm -f *[1@.M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C*time python DAS_df_pandas_writer_h5.py ; rm -f [1@*M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.time python DAS_df_pandas_writer_h5.py ; rm -f[1@ M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chtime python DAS_df_pandas_writer_h5.py ; rm -[1@fM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C5time python DAS_df_pandas_writer_h5.py ; rm [1@-M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python DAS_df_pandas_writer_h5.py ; rm[1@ M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C;time python DAS_df_pandas_writer_h5.py ; r[1@mM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python DAS_df_pandas_writer_h5.py ; [1@rM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+Traceback (most recent call last):
+  File "DAS_df_pandas_writer_h5.py", line 17, in <module>
+    df.to_hdf('data-test-3.h5', key='df', mode='w')
+  File "/usr/lib64/python2.7/site-packages/pandas/core/generic.py", line 939, in to_hdf
+    return pytables.to_hdf(path_or_buf, key, self, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 257, in to_hdf
+    f(store)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 252, in <lambda>
+    f = lambda store: store.put(key, value, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 814, in put
+    self._write_to_group(key, value, append=append, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 1252, in _write_to_group
+    s.write(obj=value, append=append, complib=complib, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2789, in write
+    self.write_array('block%d_values' % i, blk.values, items=blk_items)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2570, in write_array
+    self._handle.create_array(self.group, key, value)
+  File "/usr/lib64/python2.7/site-packages/tables/file.py", line 1152, in create_array
+    obj=obj, title=title, byteorder=byteorder)
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 187, in __init__
+    byteorder, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/leaf.py", line 262, in __init__
+    super(Leaf, self).__init__(parentnode, name, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/node.py", line 270, in __init__
+    self._v_objectid = self._g_create()
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 219, in _g_create
+    nparr, self._v_new_title, self.atom)
+  File "hdf5extension.pyx", line 1259, in tables.hdf5extension.Array._create_array (tables/hdf5extension.c:12016)
+tables.exceptions.HDF5ExtError: Problems creating the Array.
+
+real	23m56.935s
+user	17m27.012s
+sys	2m3.510s
+Traceback (most recent call last):
+  File "NFS_df_pandas_writer_h5.py", line 18, in <module>
+    df.to_hdf('/gonzo/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+  File "/usr/lib64/python2.7/site-packages/pandas/core/generic.py", line 939, in to_hdf
+    return pytables.to_hdf(path_or_buf, key, self, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 257, in to_hdf
+    f(store)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 252, in <lambda>
+    f = lambda store: store.put(key, value, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 814, in put
+    self._write_to_group(key, value, append=append, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 1252, in _write_to_group
+    s.write(obj=value, append=append, complib=complib, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2789, in write
+    self.write_array('block%d_values' % i, blk.values, items=blk_items)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2570, in write_array
+    self._handle.create_array(self.group, key, value)
+  File "/usr/lib64/python2.7/site-packages/tables/file.py", line 1152, in create_array
+    obj=obj, title=title, byteorder=byteorder)
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 187, in __init__
+    byteorder, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/leaf.py", line 262, in __init__
+    super(Leaf, self).__init__(parentnode, name, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/node.py", line 270, in __init__
+    self._v_objectid = self._g_create()
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 219, in _g_create
+    nparr, self._v_new_title, self.atom)
+  File "hdf5extension.pyx", line 1259, in tables.hdf5extension.Array._create_array (tables/hdf5extension.c:12016)
+tables.exceptions.HDF5ExtError: Problems creating the Array.
+
+real	18m16.431s
+user	17m24.433s
+sys	0m48.992s
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# [K[root@groot-3 writer-v.2]# rm -f *.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;time pythoon NFS_df_pandas_writer_h5.py M[39Pvi NFS_h500_df_pandas_writer_h5.py 
+[KM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kvi NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kvi NFS_h500_df_pandas_writer_h5.py 
+[?1049h[?1h=[1;42r[34l[34h[?25h[23m[24m[0m[H[J[?25l[42;1H"NFS_h500_df_pandas_writer_h5.py" 19L, 328C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+df = DataFrame(np.random.randn(100000,250000))
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/scooter3/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                                                    [21;1H~                                                                                                    [22;1H~                                                                                                    [23;1H~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[?25l[0m[42;1H[K[42;1H:[34h[?25hwq[?25l"NFS_h500_df_pandas_writer_h5.py" 19L, 328C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# mkdir /scooter3/hdf5/
+mkdir: cannot create directory ‘/scooter3/hdf5/’: File exists
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# mkdir /scooter3/hdf5/vi NFS_h500_df_pandas_writer_h5.py 
+[?1049h[?1h=[1;42r[34l[34h[?25h[23m[24m[0m[H[J[?25l[42;1H"NFS_h500_df_pandas_writer_h5.py" 19L, 328C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+df = DataFrame(np.random.randn(100000,250000))
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/scooter3/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                                                    [21;1H~                                                                                                    [22;1H~                                                                                                    [23;1H~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+[?25l[0m[42;1H[1m-- INSERT --[0m[42;13H[K[12;1H[34h[?25h[?25l/df = DataFrame(np.random.randn(100000,250000))/[34h[?25h[?25l/df = DataFrame(np.random.randn(100000,250000))//[34h[?25h[42;1H[K[12;2H[?25l[34h[?25h[?25l[42;1H:[34h[?25hy1[?25l[12;2H[34h[?25h[?25l[13;41r[13;1H[L[1;42r[13;1H//df = DataFrame(np.random.randn(100000,250000))[42;1H[K[13;1H[34h[?25h[?25l/df = DataFrame(np.random.randn(100000,250000)[13;48H[K[13;1H[34h[?25h[?25ldf = DataFrame(np.random.randn(100000,250000)[13;47H[K[13;1H[34h[?25h[?25l[1;41r[1;1H[19M[1;42r[23;1H[1m[34m~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h[?25l[42;1H[0m:[34h[?25hq![?25l[42;1H[K[42;1H[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_h500_df_pandas_writer_h5.py 
+[?1049h[?1h=[1;42r[34l[34h[?25h[23m[24m[0m[H[J[?25l[42;1H"NFS_h500_df_pandas_writer_h5.py" 19L, 328C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+df = DataFrame(np.random.randn(100000,250000))
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/scooter3/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                                                    [21;1H~                                                                                                    [22;1H~                                                                                                    [23;1H~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[18;1H[17;1H[16;1H[15;1H[14;1H[13;1H[12;1H[?25l[0m[42;1H[1m-- INSERT --[0m[42;13H[K[12;1H[34h[?25h[?25l/df = DataFrame(np.random.randn(100000,250000))/[34h[?25h[?25l/df = DataFrame(np.random.randn(100000,250000))//[34h[?25h[42;1H[K[12;2H[?25l[34h[?25h[?25l[42;1H:[34h[?25hy1[?25l[12;2H[34h[?25h[?25l[13;41r[13;1H[L[1;42r[13;1H//df = DataFrame(np.random.randn(100000,250000))[42;1H[K[13;1H[34h[?25h[?25l/df = DataFrame(np.random.randn(100000,250000)[13;48H[K[13;1H[34h[?25h[?25ldf = DataFrame(np.random.randn(100000,250000)[13;47H[K[13;1H[34h[?25hdf = DataFrame(np.random.randn(10[?25l000,250000)[13;46H[K[13;34H[34h[?25h[?25l00,250000)[13;45H[K[13;34H[34h[?25h[?25l0,250000)[13;44H[K[13;34H[34h[?25h[?25l,250000)[13;43H[K[13;34H[34h[?25h,25[?25l000)[13;42H[K[13;37H[34h[?25h[?25l00)[13;41H[K[13;37H[34h[?25h[?25l0)[13;40H[K[13;37H[34h[?25h[?25l)[13;39H[K[13;37H[34h[?25h
+[15;37H
+
+[?25l[42;1H:[34h[?25hwqw[?25l[42;4H[K[42;4H[34h[?25h[?25l"NFS_h500_df_pandas_writer_h5.py" 20L, 369C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# b[Kpython NFS_h500_df_pandas_writer_h5.py 
+  File "NFS_h500_df_pandas_writer_h5.py", line 12
+    //df = DataFrame(np.random.randn(100000,250000))
+     ^
+SyntaxError: invalid syntax
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# python NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;42r[34l[34h[?25h[23m[24m[0m[H[J[?25l[42;1H"NFS_h500_df_pandas_writer_h5.py" 20L, 369C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+//df = DataFrame(np.random.randn(100000,250000))
+df = DataFrame(np.random.randn(10,25))
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/scooter3/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                                                    [22;1H~                                                                                                    [23;1H~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+[?25l[0m/df = DataFrame(np.random.randn(100000,250000)[12;48H[K[12;1H[34h[?25h[?25ldf = DataFrame(np.random.randn(100000,250000)[12;47H[K[12;1H[34h[?25h[?25l[42;1H[1m-- INSERT --[0m[42;13H[K[12;1H[34h[?25h[?25l#df = DataFrame(np.random.randn(100000,250000))#[34h[?25h[42;1H[K[12;1H[?25l[34h[?25h[?25l[42;1H:[34h[?25hwq[?25l"NFS_h500_df_pandas_writer_h5.py" 20L, 368C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4@python[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls 0[K-l /scooter3/hdf5/
+total 104
+-rw-r--r-- 1 nfsnobody nfsnobody 9208 Apr 13  2020 20200413-112908-data.h5
+drwxr-xr-x 2 nfsnobody nfsnobody    0 Apr 13 09:32 [0m[01;34mstreaming[0m
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls -l /scooter3/hdf5/python NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;42r[34l[34h[?25h[23m[24m[0m[H[J[?25l[42;1H"NFS_h500_df_pandas_writer_h5.py" 20L, 368C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+#df = DataFrame(np.random.randn(100000,250000))
+df = DataFrame(np.random.randn(10,25))
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/scooter3/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                                                    [22;1H~                                                                                                    [23;1H~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+[0mdf = DataFrame(np.random.randn(10[?25l[42;1H[1m-- INSERT --[0m[42;13H[K[13;34H[34h[?25h[?25l0,25))[34h[?25h[?25l0,25))[34h[?25h[?25l0,25))[34h[?25h[?25l0,25))[34h[?25h,25[?25l0))[34h[?25h[?25l0))[34h[?25h[?25l0))[34h[?25h[42;1H[K[13;43H[?25l[34h[?25h[?25l[42;1H:[34h[?25hwq[?25l"NFS_h500_df_pandas_writer_h5.py" 20L, 375C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Pls -l /scooter3/hdf5/python NFS_h500_df_pandas_writer_h5.py 
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# python NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;42r[34l[34h[?25h[23m[24m[0m[H[J[?25l[42;1H"NFS_h500_df_pandas_writer_h5.py" 20L, 375C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+#df = DataFrame(np.random.randn(100000,250000))
+df = DataFrame(np.random.randn(100000,25000))
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/scooter3/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                                                    [22;1H~                                                                                                    [23;1H~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+[14;1H[13;1H[0mdf = DataFrame(np.random.randn(100000,25000)[?25l[42;1H[1m-- INSERT --[0m[42;13H[K[14;41r[14;1H[L[1;42r[14;1H[34h[?25h[42;1H[K[14;1H[?25l[34h[?25h[13;1H[?25l[1;41r[1;1H[20M[1;42r[22;1H[1m[34m~                                                                                                    [23;1H~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h[?25l[1;41r[0m[1;1H[L[1;42r[1;1Hdf.to_hdf('/scooter3/hdf5/'+timestr+'-data.h5',key='df', mode='w')[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H#df.to_hdf('data-test-3.h5', key='df', mode='w')[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1Htimestr = time.strftime("%Y%m%d-%H%M%S")[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1Hdf = DataFrame(np.random.randn(100000,25000))[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H#df = DataFrame(np.random.randn(100000,250000))[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1Himport time[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1Himport numpy as np[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1Himport pandas as pd[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H)[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;5HDataFrame, HDFStore[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1Hfrom pandas import ([34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H[34h[?25h[?25l[1;41r[1;1H[L[1;42r[1;1H#!/usr/bin/python[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+df = DataFrame(np.random.ra[?25l[42;1H[1m-- INSERT --[13;1H[34h[?25h[?25l[0m df = DataFrame(np.random.randn(100000,25000)) [34h[?25h[42;1H[K[13;1H[?25l[34h[?25h df = DataFrame(np.random.randn(100000,25000[?25l[42;1H[1m-- INSERT --[13;45H[34h[?25h[?25l[0m0))[34h[?25h[42;1H[K[13;45H[?25l[34h[?25h[?25l[42;1H:[34h[?25hwq[?25l"NFS_h500_df_pandas_writer_h5.py" 21L, 378C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4@python[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+  File "NFS_h500_df_pandas_writer_h5.py", line 13
+    df = DataFrame(np.random.randn(100000,250000))
+    ^
+IndentationError: unexpected indent
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# python NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?1049h[?1h=[1;42r[34l[34h[?25h[23m[24m[0m[H[J[?25l[42;1H"NFS_h500_df_pandas_writer_h5.py" 21L, 378C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time
+
+
+#df = DataFrame(np.random.randn(100000,250000))
+ df = DataFrame(np.random.randn(100000,250000))
+
+
+timestr = time.strftime("%Y%m%d-%H%M%S")
+
+
+#df.to_hdf('data-test-3.h5', key='df', mode='w')
+df.to_hdf('/scooter3/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                                                    [23;1H~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[15;1H[14;1H[13;1H[?25l[0mdf = DataFrame(np.random.randn(100000,250000)[13;47H[K[13;1H[34h[?25h[?25l[42;1H[K[42;1H:[34h[?25hwq[?25l"NFS_h500_df_pandas_writer_h5.py" 21L, 377C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4@python[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# 
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# 
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# python NFS_h500_df_pandas_writer_h5.py [1@t[1@i[1@m[1@e[1@ 
+
+real	23m0.032s
+user	17m34.640s
+sys	3m58.494s
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls -l
+total 96
+-rw-r--r-- 1 root root   325 Apr 13 10:40 DAS_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root   325 Apr 13 10:40 NFS_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root   377 Apr 13 11:33 NFS_h500_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root   549 Apr 13 08:53 nfs_writer.py
+-rw-r--r-- 1 root root 55095 Apr 13 12:20 screenlog.0
+-rw-r--r-- 1 root root 19849 Apr 13 11:28 screenlog.1
+-rw-r--r-- 1 root root   282 Apr 13 09:16 simple_writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# diff [K[K[K[K[Kpython [1@t[1@i[1@m[1@e[1@ [C[C[C[C[C[C[C  DAS_df_pandas_writer_h5.py
+Traceback (most recent call last):
+  File "DAS_df_pandas_writer_h5.py", line 17, in <module>
+    df.to_hdf('data-test-3.h5', key='df', mode='w')
+  File "/usr/lib64/python2.7/site-packages/pandas/core/generic.py", line 939, in to_hdf
+    return pytables.to_hdf(path_or_buf, key, self, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 257, in to_hdf
+    f(store)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 252, in <lambda>
+    f = lambda store: store.put(key, value, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 814, in put
+    self._write_to_group(key, value, append=append, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 1252, in _write_to_group
+    s.write(obj=value, append=append, complib=complib, **kwargs)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2789, in write
+    self.write_array('block%d_values' % i, blk.values, items=blk_items)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/pytables.py", line 2570, in write_array
+    self._handle.create_array(self.group, key, value)
+  File "/usr/lib64/python2.7/site-packages/tables/file.py", line 1152, in create_array
+    obj=obj, title=title, byteorder=byteorder)
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 187, in __init__
+    byteorder, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/leaf.py", line 262, in __init__
+    super(Leaf, self).__init__(parentnode, name, _log)
+  File "/usr/lib64/python2.7/site-packages/tables/node.py", line 270, in __init__
+    self._v_objectid = self._g_create()
+  File "/usr/lib64/python2.7/site-packages/tables/array.py", line 219, in _g_create
+    nparr, self._v_new_title, self.atom)
+  File "hdf5extension.pyx", line 1259, in tables.hdf5extension.Array._create_array (tables/hdf5extension.c:12016)
+tables.exceptions.HDF5ExtError: Problems creating the Array.
+
+real	24m7.311s
+user	17m35.345s
+sys	1m38.821s
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# df -h
+Filesystem                Size  Used Avail Use% Mounted on
+devtmpfs                  378G     0  378G   0% /dev
+tmpfs                     378G     0  378G   0% /dev/shm
+tmpfs                     378G  3.8G  374G   2% /run
+tmpfs                     378G     0  378G   0% /sys/fs/cgroup
+/dev/mapper/cl-root        50G  5.3G   45G  11% /
+/dev/sda1                 1.8T   68M  1.7T   1% /opt/big
+/dev/sdc1                1014M  226M  789M  23% /boot
+/dev/mapper/cl-home        57G   57G  2.8M 100% /home
+tmpfs                      76G     0   76G   0% /run/user/0
+172.16.1.1:/ifs/data       87T   84T     0 100% /gonzo
+172.16.141.252:/ifs/data  108T  455G  104T   1% /fozzie
+172.16.208.201:/ifs/data  108T  528G  104T   1% /scooter3
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls -l
+total 59478180
+-rw-r--r-- 1 root root          325 Apr 13 10:40 DAS_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root 200002805160 Apr 13 12:53 data-test-3.h5
+-rw-r--r-- 1 root root          325 Apr 13 10:40 NFS_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root          377 Apr 13 11:33 NFS_h500_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root          549 Apr 13 08:53 nfs_writer.py
+-rw-r--r-- 1 root root        58682 Apr 13 13:01 screenlog.0
+-rw-r--r-- 1 root root        19849 Apr 13 11:28 screenlog.1
+-rw-r--r-- 1 root root          282 Apr 13 09:16 simple_writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# rm *.h4[K5
+rm: remove regular file ‘data-test-3.h5’? y
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls -l
+total 100
+-rw-r--r-- 1 root root   325 Apr 13 10:40 DAS_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root   325 Apr 13 10:40 NFS_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root   377 Apr 13 11:33 NFS_h500_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root   549 Apr 13 08:53 nfs_writer.py
+-rw-r--r-- 1 root root 59460 Apr 13 13:01 screenlog.0
+-rw-r--r-- 1 root root 19849 Apr 13 11:28 screenlog.1
+-rw-r--r-- 1 root root   282 Apr 13 09:16 simple_writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# cd ..
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# s[Kls
+screenlog.0  screenlog.1  [0m[01;34mwriter-v.1[0m  [01;34mwriter-v.2[0m
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# cd writer-v.1
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# ls -l
+total 216
+-rw-r--r-- 1 root root    240 Mar  6 10:53 \
+-rw-r--r-- 1 root root    719 Mar 12 06:14 allrun.sh
+drwxr-xr-x 2 root root     54 Mar  9 10:07 [0m[01;34mcore[0m
+drwxr-xr-x 4 root root    287 Mar 11 10:55 [01;34mf800-only[0m
+drwxr-xr-x 2 root root     25 Mar 12 06:14 [01;34mfozzie-in-mix[0m
+-rwxr-xr-x 1 root root    135 Apr 13 09:28 [01;32mmounter[0m
+-rw-r--r-- 1 root root    339 Mar  9 10:06 nfs_writer_conncurrent.py
+-rw-r--r-- 1 root root    340 Mar 11 10:52 nfs_writer_conn_h400.py
+-rw-r--r-- 1 root root    330 Mar  9 10:05 nfs_writer.py
+-rw-r--r-- 1 root root    339 Mar 11 10:53 nfs_writer_streaming_h400.py
+-rw-r--r-- 1 root root    338 Mar  9 11:47 nfs_writer_streaming.py
+-rw-r--r-- 1 root root 177559 Mar 19 08:45 screenlog.0
+-rw-r--r-- 1 root root   2152 Mar 13 07:17 screenlog.1
+-rw-r--r-- 1 root root    326 Mar  9 10:03 writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# cd core
+kroot@groot-3:/home/mike/hdf5/writer-v.1/core\[root@groot-3 core]# ls
+nfs_writer_core.py  writer_core.py
+kroot@groot-3:/home/mike/hdf5/writer-v.1/core\[root@groot-3 core]# cd ..
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# ls -l
+total 216
+-rw-r--r-- 1 root root    240 Mar  6 10:53 \
+-rw-r--r-- 1 root root    719 Mar 12 06:14 allrun.sh
+drwxr-xr-x 2 root root     54 Mar  9 10:07 [0m[01;34mcore[0m
+drwxr-xr-x 4 root root    287 Mar 11 10:55 [01;34mf800-only[0m
+drwxr-xr-x 2 root root     25 Mar 12 06:14 [01;34mfozzie-in-mix[0m
+-rwxr-xr-x 1 root root    135 Apr 13 09:28 [01;32mmounter[0m
+-rw-r--r-- 1 root root    339 Mar  9 10:06 nfs_writer_conncurrent.py
+-rw-r--r-- 1 root root    340 Mar 11 10:52 nfs_writer_conn_h400.py
+-rw-r--r-- 1 root root    330 Mar  9 10:05 nfs_writer.py
+-rw-r--r-- 1 root root    339 Mar 11 10:53 nfs_writer_streaming_h400.py
+-rw-r--r-- 1 root root    338 Mar  9 11:47 nfs_writer_streaming.py
+-rw-r--r-- 1 root root 177559 Mar 19 08:45 screenlog.0
+-rw-r--r-- 1 root root   2152 Mar 13 07:17 screenlog.1
+-rw-r--r-- 1 root root    326 Mar  9 10:03 writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# cd f800-only/
+kroot@groot-3:/home/mike/hdf5/writer-v.1/f800-only\[root@groot-3 f800-only]# ls
+\          [0m[01;34mf800-only[0m                  nfs_writer.py                 screenlog.0  writer.py
+allrun.sh  nfs_writer_conncurrent.py  nfs_writer_streaming_h400.py  screenlog.1
+[01;34mcore[0m       nfs_writer_conn_h400.py    nfs_writer_streaming.py       screenlog.2
+kroot@groot-3:/home/mike/hdf5/writer-v.1/f800-only\[root@groot-3 f800-only]# cd ..
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# ls -l
+total 216
+-rw-r--r-- 1 root root    240 Mar  6 10:53 \
+-rw-r--r-- 1 root root    719 Mar 12 06:14 allrun.sh
+drwxr-xr-x 2 root root     54 Mar  9 10:07 [0m[01;34mcore[0m
+drwxr-xr-x 4 root root    287 Mar 11 10:55 [01;34mf800-only[0m
+drwxr-xr-x 2 root root     25 Mar 12 06:14 [01;34mfozzie-in-mix[0m
+-rwxr-xr-x 1 root root    135 Apr 13 09:28 [01;32mmounter[0m
+-rw-r--r-- 1 root root    339 Mar  9 10:06 nfs_writer_conncurrent.py
+-rw-r--r-- 1 root root    340 Mar 11 10:52 nfs_writer_conn_h400.py
+-rw-r--r-- 1 root root    330 Mar  9 10:05 nfs_writer.py
+-rw-r--r-- 1 root root    339 Mar 11 10:53 nfs_writer_streaming_h400.py
+-rw-r--r-- 1 root root    338 Mar  9 11:47 nfs_writer_streaming.py
+-rw-r--r-- 1 root root 177559 Mar 19 08:45 screenlog.0
+-rw-r--r-- 1 root root   2152 Mar 13 07:17 screenlog.1
+-rw-r--r-- 1 root root    326 Mar  9 10:03 writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# cd fozzie-in-mix/
+kroot@groot-3:/home/mike/hdf5/writer-v.1/fozzie-in-mix\[root@groot-3 fozzie-in-mix]# ls
+screenlog.0
+kroot@groot-3:/home/mike/hdf5/writer-v.1/fozzie-in-mix\[root@groot-3 fozzie-in-mix]# cd ..
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# ls -l
+total 216
+-rw-r--r-- 1 root root    240 Mar  6 10:53 \
+-rw-r--r-- 1 root root    719 Mar 12 06:14 allrun.sh
+drwxr-xr-x 2 root root     54 Mar  9 10:07 [0m[01;34mcore[0m
+drwxr-xr-x 4 root root    287 Mar 11 10:55 [01;34mf800-only[0m
+drwxr-xr-x 2 root root     25 Mar 12 06:14 [01;34mfozzie-in-mix[0m
+-rwxr-xr-x 1 root root    135 Apr 13 09:28 [01;32mmounter[0m
+-rw-r--r-- 1 root root    339 Mar  9 10:06 nfs_writer_conncurrent.py
+-rw-r--r-- 1 root root    340 Mar 11 10:52 nfs_writer_conn_h400.py
+-rw-r--r-- 1 root root    330 Mar  9 10:05 nfs_writer.py
+-rw-r--r-- 1 root root    339 Mar 11 10:53 nfs_writer_streaming_h400.py
+-rw-r--r-- 1 root root    338 Mar  9 11:47 nfs_writer_streaming.py
+-rw-r--r-- 1 root root 177559 Mar 19 08:45 screenlog.0
+-rw-r--r-- 1 root root   2152 Mar 13 07:17 screenlog.1
+-rw-r--r-- 1 root root    326 Mar  9 10:03 writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.1\[root@groot-3 writer-v.1]# cd ..
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# df -h
+Filesystem                Size  Used Avail Use% Mounted on
+devtmpfs                  378G     0  378G   0% /dev
+tmpfs                     378G     0  378G   0% /dev/shm
+tmpfs                     378G  3.8G  374G   2% /run
+tmpfs                     378G     0  378G   0% /sys/fs/cgroup
+/dev/mapper/cl-root        50G  5.3G   45G  11% /
+/dev/sda1                 1.8T   68M  1.7T   1% /opt/big
+/dev/sdc1                1014M  226M  789M  23% /boot
+/dev/mapper/cl-home        57G   33M   57G   1% /home
+tmpfs                      76G     0   76G   0% /run/user/0
+172.16.1.1:/ifs/data       87T   84T     0 100% /gonzo
+172.16.141.252:/ifs/data  108T  455G  104T   1% /fozzie
+172.16.208.201:/ifs/data  108T  528G  104T   1% /scooter3
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# ls -l
+total 4
+-rw-r--r-- 1 root root    0 Apr 13 07:34 screenlog.0
+-rw-r--r-- 1 root root 1334 Apr 13 07:42 screenlog.1
+drwxr-xr-x 5 root root  304 Apr 13 09:28 [0m[01;34mwriter-v.1[0m
+drwxr-xr-x 2 root root  196 Apr 13 13:01 [01;34mwriter-v.2[0m
+kroot@groot-3:/home/mike/hdf5\[root@groot-3 hdf5]# vi [K[K[Kcd writer-v.2
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls -l
+total 168
+-rw-r--r-- 1 root root   325 Apr 13 10:40 DAS_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root   325 Apr 13 10:40 NFS_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root   377 Apr 13 11:33 NFS_h500_df_pandas_writer_h5.py
+-rw-r--r-- 1 root root   549 Apr 13 08:53 nfs_writer.py
+-rw-r--r-- 1 root root 66049 Apr 13 13:03 screenlog.0
+-rw-r--r-- 1 root root 19849 Apr 13 11:28 screenlog.1
+-rw-r--r-- 1 root root   282 Apr 13 09:16 simple_writer.py
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# ls /opt/big/
+[0m[01;34mlost+found[0m
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# mkdir [K[K[K[K[K[Kvi DAS_df_pandas_writer_h5.py 
+[?1049h[?1h=[1;42r[34l[34h[?25h[23m[24m[0m[H[J[?25l[42;1H"DAS_df_pandas_writer_h5.py" 19L, 325C[1;1H#!/usr/bin/python
+
+
+from pandas import (
+    DataFrame, HDFStore
+)
+import pandas as pd
+import numpy as np
+import time[13;1Htimestr = time.strftime("%Y%m%d-%H%M%S")
+
+df = DataFrame(np.random.randn(100000,250000))
+
+df.to_hdf('data-test-3.h5', key='df', mode='w')
+#df.to_hdf('/gonzo/hdf5/'+timestr+'-data.h5',key='df', mode='w')
+
+[1m[34m~                                                                                                    [21;1H~                                                                                                    [22;1H~                                                                                                    [23;1H~                                                                                                    [24;1H~                                                                                                    [25;1H~                                                                                                    [26;1H~                                                                                                    [27;1H~                                                                                                    [28;1H~                                                                                                    [29;1H~                                                                                                    [30;1H~                                                                                                    [31;1H~                                                                                                    [32;1H~                                                                                                    [33;1H~                                                                                                    [34;1H~                                                                                                    [35;1H~                                                                                                    [36;1H~                                                                                                    [37;1H~                                                                                                    [38;1H~                                                                                                    [39;1H~                                                                                                    [40;1H~                                                                                                    [41;1H~                                                                                                    [1;1H[34h[?25h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[18;1H[17;1H[0mdf.to_hdf('[?25l[42;1H[1m-- INSERT --[0m[42;13H[K[17;12H[34h[?25h[?25l/data-test-3.h5', key='df', mode='w')[17;13H[34h[?25h[?25lodata-test-3.h5', key='df', mode='w')[17;14H[34h[?25h[?25lpdata-test-3.h5', key='df', mode='w')[17;15H[34h[?25h[?25ltdata-test-3.h5', key='df', mode='w')[17;16H[34h[?25h[?25l/data-test-3.h5', key='df', mode='w')[17;17H[34h[?25h[?25lbdata-test-3.h5', key='df', mode='w')[17;18H[34h[?25h[?25lidata-test-3.h5', key='df', mode='w')[17;19H[34h[?25h[?25lgdata-test-3.h5', key='df', mode='w')[17;20H[34h[?25h[?25l/data-test-3.h5', key='df', mode='w')[17;21H[34h[?25h[42;1H[K[17;20H[?25l[34h[?25h[?25l[42;1H:[34h[?25hwq[?25l"DAS_df_pandas_writer_h5.py" 19L, 334C written
+[?1l>[34h[?25h[?1049lkroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# vi DAS_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[18Pls /opt/big/-l[Kcd writer-v.2[8Pls -ldf -hcd ..ls -lcd ..[3Plscd fozzie-in-mix/ls -l[Kcd ..[3Plscd f800-only/[8Pls -lcd ..[3Plscd core[2Pls -lcd writer-v.1ls[Kcd ..ls -lrm *.h5[2Pls -ldf -htime python   DAS_df_pandas_writer_h5.py[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls -l[Ktime python   DAS_df_pandas_writer_h5.py
+
+real	22m8.407s
+user	17m26.995s
+sys	4m38.243s
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# time python   DAS_df_pandas_writer_h5.py[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Pvi DAS_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[18Pls /opt/big/-l[Kcd writer-v.2[8Pls -ldf -hcd ..ls -lcd ..[3Plscd fozzie-in-mix/ls -l[Kcd ..[3Plscd f800-only/[8Pls -lcd ..[3Plscd core[2Pls -lcd writer-v.1ls[Kcd ..ls -lrm *.h5[2Pls -ldf -htime python   DAS_df_pandas_writer_h5.py[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls -l[Ktime python   DAS_df_pandas_writer_h5.py[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls -l[Ktime python NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4@python[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4@python[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Pls -l /scooter3/hdf5/python NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4@python[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Pmkdir /scooter3/hdf5/vi NFS_h500_df_pandas_writer_h5.py [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crm -f *.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;time pythoon NFS_df_pandas_writer_h5.py M[39Pvi NFS_h500_df_pandas_writer_h5.py 
+[KM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crm -f *.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;time pythoon NFS_df_pandas_writer_h5.py M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;time pyth[1@oM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;time pyt[1@hM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cp*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;time py[1@tM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;time p[1@yM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;time [1@pM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cb*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;time[1@ M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ci*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;tim[1@eM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cg*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;ti[1@mM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f *.h5;t[1@iM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/*.h5;[1@tM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cg*.h5[1@;M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co*.h[1@5M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cn*.[1@hM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cz*[1@.[1@o[1@/[1@h[1@d[3@f5/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C; rm -Rf /go[K[Kfozzie/[K3/[K[K/hdf5/*.5[Kh5 ; time python NFS_h500_ddf_pandas_writer_h5.py 
+
+real	23m22.293s
+user	17m30.516s
+sys	5m48.479s
+
+real	22m13.752s
+user	17m31.460s
+sys	3m49.223s
+
+real	23m46.222s
+user	17m34.773s
+sys	4m55.145s
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# rm -f /opt/big/*.h5 ; time python DAS_df_pandas_writer_h5.py ; rm -f /gonzoo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python NFS_h500_ddf_pandas_writer_h5.py M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python NFS_h500_[1@dMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ce time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python NFS_h500[1@_MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python NFS_h50[1@0MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ch time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python NFS_h5[C[1@0MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python NFS_h[1@5MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python NFS_[1@hMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CD time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python NFS[1@_MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CA time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python NF[1@SMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CS time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python N[1@FMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python [1@NMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C; time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time python[1@ MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time pytho[1@nMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cetime python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time pyth[1@oM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cctime python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time pyt[1@hM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chtime python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time py[1@tM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cotime python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time p[1@yM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time [1@pM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CFtime python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; time[1@ M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C8time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; tim[1@eM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; ti[1@mM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C0time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; t[1@iM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ; [1@tM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 ;[1@ M[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[1@e[1@c[1@h[1@o[1@ [1@H[1@5[1@0[1@0[1@;[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C; doneM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwrm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5 [1@;MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chrm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h5[1@ MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.h[1@5MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clrm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*.[1@hMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cerm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/*[1@.MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5/[1@*MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf5[1@/MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hdf[1@5MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C1rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/hd[1@fMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C]rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/h[1@dMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie/[1@hMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C;rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzie[1@/MM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdrm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzi[1@eMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Corm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozz[1@iMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /foz[1@zMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+
+bash: [: missing `]'
+kroot@groot-3:/home/mike/hdf5/writer-v.2\[root@groot-3 writer-v.2]# while [ 1] ;do rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas__writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fozzzie/hdf5/*.h5 ; echo H500; time python NFS_h500_df_pandas_writer_h5.py ; doneM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C ] ;do rm -f /opt/big/*.h5 ; echo DAS ;  time python DAS_df_pandas_writer_h5.py ; rm -f /gonzo/hdf5/*.h5;echo F800; time python NFS_df_pandas_writer_h5.py ; rm -Rf /fo[C[1@zMM[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+
+DAS
+
+real	22m56.142s
+user	17m31.295s
+sys	5m20.014s
+F800
+
+real	22m3.263s
+user	17m36.245s
+sys	3m36.425s
+H500
+
+real	23m21.610s
+user	17m34.582s
+sys	4m32.379s
+DAS
+
+real	22m11.812s
+user	17m35.913s
+sys	4m32.735s
+F800
+
+real	22m5.851s
+user	17m26.766s
+sys	3m43.447s
+H500
+
+real	24m21.383s
+user	17m38.302s
+sys	5m37.026s
+DAS
+
+real	22m0.988s
+user	17m29.469s
+sys	4m28.351s
+F800
+
+real	22m11.442s
+user	17m29.898s
+sys	3m48.016s
+H500
